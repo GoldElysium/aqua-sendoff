@@ -1,13 +1,14 @@
 # Aqua send off website
+
 Website for AkukinHQ's send off project
 
 ## Preparing
 
 Make sure to have the following:
 
-- Node 20
-- git
-- pnpm (replaces npm as a node package manager)
+-   Node 20
+-   git
+-   pnpm (replaces npm as a node package manager)
 
 We recommed you use [Volta](https://volta.sh/) to manage Node and pnpm!
 
@@ -19,9 +20,9 @@ pnpm i
 
 It is recommended to use VS Code with the following extensions:
 
-- Svelte for VS Code (`svelte.svelte-vscode`)
-- ESLint (`dbaeumer.vscode-eslint`)
-- Prettier - Code formatter (`esbenp.prettier-vscode`)
+-   Svelte for VS Code (`svelte.svelte-vscode`)
+-   ESLint (`dbaeumer.vscode-eslint`)
+-   Prettier - Code formatter (`esbenp.prettier-vscode`)
 
 Additionally, enabling **Format on save** (`editor.formatOnSave`) will avoid having to run Prettier manually (`pnpm format`).
 

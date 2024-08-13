@@ -32,8 +32,8 @@
 			<span
 				class="text"
 				class:underline={node.format & IS_UNDERLINE}
-				class:strikethrough={node.format & IS_STRIKETHROUGH}
-			>{@html node.text}</span>
+				class:strikethrough={node.format & IS_STRIKETHROUGH}>{@html node.text}</span
+			>
 		{/if}
 	{:else if node.type === 'linebreak'}
 		<br />
@@ -47,7 +47,7 @@
 		</li>
 	{:else if node.type === 'list'}
 		{#if node.tag && node.listType === 'number'}
-			<ol class="list-decimal list-inside ">
+			<ol class="list-decimal list-inside">
 				<svelte:self nodes={node.children} />
 			</ol>
 		{:else if node.tag && node.listType === 'bullet'}
