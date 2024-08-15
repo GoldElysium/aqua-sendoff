@@ -1,4 +1,5 @@
 <script lang="ts">
+	import * as m from '$lib/paraglide/messages.js'
 	import type { PageData } from './$types';
 
 	// Prefilled by server data; assuming the data is sorted by server side code.
@@ -12,19 +13,19 @@
 		<div class="flex gap-4">
 			<div class="bg-blue-400 px-4 py-2 rounded-md">
 				<input type="checkbox" checked id="show-messages">
-				<label for="show-messages">Show messages</label>
+				<label for="show-messages">{m.messages()}</label>
 			</div>
 			<div class="bg-blue-400 px-4 py-2 rounded-md">
 				<input type="checkbox" checked id="show-artwork">
-				<label for="show-artwork">Show artwork</label>
+				<label for="show-artwork">{m.artworks()}</label>
 			</div>
 			<div class="bg-blue-400 px-4 py-2 rounded-md">
 				<input type="checkbox" checked id="show-pictures">
-				<label for="show-pictures">Show pictures</label>
+				<label for="show-pictures">{m.photos()}</label>
 			</div>
 			<div class="bg-blue-400 px-4 py-2 rounded-md">
 				<input type="checkbox" checked id="show-videos">
-				<label for="show-videos">Show videos</label>
+				<label for="show-videos">{m.videos()}</label>
 			</div>
 		</div>
 		<div class="grid place-items-center py-8">
