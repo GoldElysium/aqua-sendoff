@@ -6,7 +6,10 @@
 	const scrollToYear = (year: number) => {
 		const element = document.getElementById(`year-${year}`);
 		if (element) {
-			window.scrollTo({ top: element.offsetTop - 100, behavior: 'smooth' }); // Adjust -100 for any header or offset
+			window.scrollTo({
+				top: element.offsetTop - window.innerHeight / 2,
+				behavior: 'smooth'
+			}); // Adjust -100 for any header or offset
 		}
 	};
 
