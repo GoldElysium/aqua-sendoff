@@ -9,7 +9,7 @@
 			window.scrollTo({
 				top: element.offsetTop - window.innerHeight / 2,
 				behavior: 'smooth'
-			}); // Adjust -100 for any header or offset
+			});
 		}
 	};
 
@@ -23,7 +23,10 @@
 	<div class="progress-bar">
 		<div class="progress-bar-fill" style="width: {progress}%;"></div>
 		{#each timelineData as { year }, index}
-			<div class="year-landmark" style="left: {(index / (timelineData.length - 1)) * 100}%;">
+			<div
+				class="year-landmark"
+				style="left: calc({(index / (timelineData.length - 1)) * 100}% - 8px);"
+			>
 				<div class="dot" on:click={() => scrollToYear(year)}></div>
 				<div class="year-label">{year}</div>
 			</div>
@@ -44,42 +47,47 @@
 	.progress-bar {
 		position: relative;
 		width: 80%;
-		height: 10px;
+		height: 6px;
 		background-color: #e0e0e0;
-		border-radius: 5px;
+		border-radius: 3px;
+		padding: 0 8px;
 	}
 
 	.progress-bar-fill {
 		position: absolute;
 		height: 100%;
 		background-color: #007bff;
-		border-radius: 5px;
+		border-radius: 3px;
 		transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
 	.year-landmark {
 		position: absolute;
-		top: -20px;
-		transform: translateX(-50%);
+
 		text-align: center;
 	}
 
 	.dot {
-		width: 14px;
-		height: 14px;
+		width: 16px;
+		height: 16px;
 		background-color: #007bff;
+		border: 2px solid #ffffff;
 		border-radius: 50%;
 		cursor: pointer;
-		transition: background-color 0.3s;
+		transition:
+			background-color 0.3s,
+			transform 0.3s;
 	}
 
 	.dot:hover {
 		background-color: #0056b3;
+		transform: scale(1.1);
 	}
 
 	.year-label {
-		margin-top: 20px;
+		margin-top: 10px;
 		font-size: 12px;
 		color: #333;
+		font-weight: bold;
 	}
 </style>

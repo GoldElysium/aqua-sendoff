@@ -5,7 +5,7 @@
 	import NavItem from './NavItem.svelte';
 </script>
 
-<nav class="flex justify-between mx-5 my-3">
+<nav class="flex justify-between px-5 py-3 absolute t-0 w-full">
 	<a href={createLink('/')}>
 		<Logo></Logo>
 	</a>

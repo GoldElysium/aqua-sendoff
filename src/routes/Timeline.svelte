@@ -52,23 +52,48 @@
 </script>
 
 <!-- Progress Bar -->
-<TimelineProgress bind:this={timelineProgress} {timelineData} />
 
 <!-- Timeline Content -->
-<div>
-	{#each timelineData as yearData, index}
-		<!-- Year Section -->
-		<div class="flex flex-col items-center" bind:this={sectionRefs[index]}>
-			<h2 class="text-2xl font-bold">{yearData.year}</h2>
-			<div id={`year-${yearData.year}`}>
-				<div class="flex flex-col items-center">
-					{#each yearData.events as item, i}
-						<TimelineCard {item} isRight={i % 2 === 0} />
-					{/each}
+<div id="timeline-section" class="">
+	<div class="flex flex-col items-center justify-center m-5 gap-2">
+		<h1 class="text-4xl font-bold">It's been a long journey</h1>
+		<h2 class="text-lg">7 years of voyage</h2>
+	</div>
+	<TimelineProgress bind:this={timelineProgress} {timelineData} />
+	<div class="mt-10">
+		{#each timelineData as yearData, index}
+			<!-- Year Section -->
+			<div class="flex flex-col items-center" bind:this={sectionRefs[index]}>
+				<div id={`year-${yearData.year}`}>
+					<div class="flex flex-col items-center gap-10">
+						{#each yearData.events as item, i}
+							<div
+								class="w-[80%] flex {(yearData.year + i) % 2 !== 0
+									? 'justify-end'
+									: 'justify-start'}"
+							>
+								<div class="w-[50%]">
+									{#if i === 0}
+										<h2
+											class="text-3xl font-bold m-16 {(yearData.year + i) %
+												2 !==
+											0
+												? 'text-start'
+												: 'text-end'}"
+										>
+											{yearData.year}
+										</h2>
+									{/if}
+
+									<TimelineCard {item} isRight={(yearData.year + i) % 2 !== 0} />
+								</div>
+							</div>
+						{/each}
+					</div>
 				</div>
 			</div>
-		</div>
-	{/each}
+		{/each}
+	</div>
 </div>
 
 <style>

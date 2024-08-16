@@ -1,12 +1,9 @@
 <script>
 	import Timeline from './Timeline.svelte';
-	import TimelineProgress from './TimelineProgress.svelte';
 </script>
 
-<main>
-	<h1>Timeline page</h1>
-</main>
-
-<div class="timeline-section">
-	<Timeline></Timeline>
+<div class="h-screen flex items-center justify-center bg-gray-100">
+	<img src="mainlogo.webp" alt="main-logo" class="w-1/2" />
 </div>
+
+<Timeline></Timeline>
