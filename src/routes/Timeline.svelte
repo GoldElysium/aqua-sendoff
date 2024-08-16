@@ -8,35 +8,34 @@
 	export let timelineData: YearlyTimelineData[] = getTempTimelineData();
 
 	let sectionRefs: HTMLDivElement[] = [];
-	let referencePoints: number[] = [];
 	let timelineProgress: TimelineProgress; // Reference to the TimelineProgress component
 
 	// Function to calculate the reference points for each section
-	const calculateReferencePoints = () => {
-		referencePoints = sectionRefs.map((ref) => ref.getBoundingClientRect().top);
-	};
-
 	// Function to handle scroll events
 	const onScroll = () => {
-		const scrollPos = window.scrollY + referencePoints[0];
+		const middlePoint = window.innerHeight / 2;
 
 		let closestIndex = 0;
 		let minDiff = Infinity;
 
 		// Find the closest reference point
-		referencePoints.forEach((point, index) => {
-			const diff = Math.abs(scrollPos - point);
-			if (diff < minDiff) {
+		sectionRefs.forEach((section, index) => {
+			const point = section.getBoundingClientRect().y;
+			const diff = Math.abs(middlePoint - point);
+			if (diff < minDiff && point < middlePoint) {
 				minDiff = diff;
 				closestIndex = index;
 			}
 		});
 
+		if (minDiff === Infinity) {
+			return;
+		}
+
 		// Offset from the current scollPos to the reference point
 		const offset =
-			scrollPos > referencePoints[closestIndex] && closestIndex < referencePoints.length - 1
-				? (scrollPos - referencePoints[closestIndex]) /
-					sectionRefs[closestIndex].clientHeight
+			closestIndex < sectionRefs.length - 1
+				? minDiff / sectionRefs[closestIndex].clientHeight
 				: 0;
 		// Update the progress component
 		if (timelineProgress) {
@@ -46,8 +45,6 @@
 
 	onMount(() => {
 		window.addEventListener('scroll', onScroll);
-		calculateReferencePoints();
-
 		return () => {
 			window.removeEventListener('scroll', onScroll);
 		};
