@@ -1,14 +1,18 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
+	import { onMount } from 'svelte';
 	import getTempTimelineData from '$lib/js/getTempTimelineData';
 	import type { YearlyTimelineData } from '$lib/types/types';
-	import TimelineCard from './TimelineCard.svelte';
-	import TimelineProgress from './TimelineProgress.svelte';
+	import TimelineProgress from './TimelineProgressHorizontal.svelte';
+	import TimelineHorizontal from './TimelineHorizontal.svelte';
+	import TimelineVertical from './TimelineVertical.svelte';
+	import TimelineProgressVertical from './TimelineProgressVertical.svelte';
+	import TimelineProgressHorizontal from './TimelineProgressHorizontal.svelte';
 
 	export let timelineData: YearlyTimelineData[] = getTempTimelineData();
 
 	let sectionRefs: HTMLDivElement[] = [];
 	let timelineProgress: TimelineProgress; // Reference to the TimelineProgress component
+	let layoutType = 'horizontal';
 
 	// Function to calculate the reference points for each section
 	// Function to handle scroll events
@@ -43,10 +47,17 @@
 		}
 	};
 
+	const updateLayout = () => {
+		layoutType = window.innerWidth >= 768 ? 'horizontal' : 'vertical';
+	};
+
 	onMount(() => {
+		updateLayout();
 		window.addEventListener('scroll', onScroll);
+		window.addEventListener('resize', updateLayout);
 		return () => {
 			window.removeEventListener('scroll', onScroll);
+			window.removeEventListener('resize', updateLayout);
 		};
 	});
 </script>
@@ -59,41 +70,17 @@
 		<h1 class="text-4xl font-bold">It's been a long journey</h1>
 		<h2 class="text-lg">7 years of voyage</h2>
 	</div>
-	<TimelineProgress bind:this={timelineProgress} {timelineData} />
-	<div class="mt-10">
-		{#each timelineData as yearData, index}
-			<!-- Year Section -->
-			<div class="flex flex-col items-center" bind:this={sectionRefs[index]}>
-				<div id={`year-${yearData.year}`}>
-					<div class="flex flex-col items-center gap-10">
-						{#each yearData.events as item, i}
-							<div
-								class="w-[80%] flex {(yearData.year + i) % 2 !== 0
-									? 'justify-end'
-									: 'justify-start'}"
-							>
-								<div class="w-[50%]">
-									{#if i === 0}
-										<h2
-											class="text-3xl font-bold m-16 {(yearData.year + i) %
-												2 !==
-											0
-												? 'text-start'
-												: 'text-end'}"
-										>
-											{yearData.year}
-										</h2>
-									{/if}
+	{#if layoutType === 'horizontal'}
+		<TimelineProgress bind:this={timelineProgress} {timelineData} />
+		<TimelineHorizontal {timelineData} {sectionRefs} />
+	{/if}
 
-									<TimelineCard {item} isRight={(yearData.year + i) % 2 !== 0} />
-								</div>
-							</div>
-						{/each}
-					</div>
-				</div>
-			</div>
-		{/each}
-	</div>
+	{#if layoutType === 'vertical'}
+		<div class="flex">
+			<TimelineProgressVertical bind:this={timelineProgress} {timelineData} />
+			<TimelineVertical {timelineData} {sectionRefs} />
+		</div>
+	{/if}
 </div>
 
 <style>

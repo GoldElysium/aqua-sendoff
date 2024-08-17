@@ -1,0 +1,39 @@
+<script lang="ts">
+	import type { YearlyTimelineData } from '$lib/types/types';
+	export let sectionRefs: HTMLDivElement[] = [];
+	export let timelineData: YearlyTimelineData[];
+	import TimelineCard from './TimelineCard.svelte';
+</script>
+
+<div class="mt-10">
+	{#each timelineData as yearData, index}
+		<!-- Year Section -->
+		<div class="flex flex-col items-center" bind:this={sectionRefs[index]}>
+			<div id={`year-${yearData.year}`}>
+				<div class="flex flex-col items-center gap-10">
+					{#each yearData.events as item, i}
+						<div
+							class="w-[80%] flex {(yearData.year + i) % 2 !== 0
+								? 'justify-end'
+								: 'justify-start'}"
+						>
+							<div class="w-[50%]">
+								{#if i === 0}
+									<h2
+										class="text-3xl font-bold m-16 {yearData.year % 2 !== 0
+											? 'text-start'
+											: 'text-end'}"
+									>
+										{yearData.year}
+									</h2>
+								{/if}
+
+								<TimelineCard {item} isRight={(yearData.year + i) % 2 !== 0} />
+							</div>
+						</div>
+					{/each}
+				</div>
+			</div>
+		</div>
+	{/each}
+</div>

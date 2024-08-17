@@ -3,7 +3,7 @@ import type { TimelineData, YearlyTimelineData, Image } from '$lib/types/types';
 export default function getTempTimelineData(): Array<YearlyTimelineData> {
 	const years: Array<YearlyTimelineData> = [];
 	const tmpImages: Image[] = Array.from({ length: 1 }, (_, i) => ({
-		src: `https://static.wikia.nocookie.net/holopediavn/images/0/04/Aqua_2.png/revision/latest?cb=20210228082752&path-prefix=vi`,
+		src: `https://wallpaperwaifu.com/wp-content/uploads/2021/03/minato-aqua-birthday-virtual-youtuber-thumb-360x203.jpg`,
 		alt: `Image ${i + 1}`,
 		height: 600,
 		width: 800,
