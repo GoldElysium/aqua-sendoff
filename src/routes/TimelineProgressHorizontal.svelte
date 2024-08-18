@@ -21,7 +21,7 @@
 	}
 </script>
 
-<div class="progress-bar-container">
+<div class="progress-bar-container md:mx-24 lg:mx-48">
 	<div class="progress-bar">
 		<div class="absolute inset-x-0 -top-1 z-10 flex justify-between drop-shadow-lg">
 			{#each timelineData as { year }, index}
