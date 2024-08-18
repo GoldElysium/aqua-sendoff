@@ -124,9 +124,9 @@
 	<span class="anchor-line" style="height: {lineHeight}px">
 		<a
 			class="absolute bottom-0 translate-y-[88%] translate-x-[calc(-50%+1px)] grid place-items-center cursor-pointer"
-			href="{percDown >= 0.92 ? '/messages' : 'javascript:void(0)'}"
+			href="{percDown >= 0.97 ? '/messages' : 'javascript:void(0)'}"
 		>
-			{#if percDown >= 0.92}
+			{#if percDown >= 0.97}
 				<span class="w-20 h-20 bg-white opacity-20 animate-ping absolute rounded-full"
 				></span>
 			{/if}

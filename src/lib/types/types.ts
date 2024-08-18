@@ -1,3 +1,5 @@
+import type { Event } from "./CMS";
+
 type Image = {
 	src: string;
 	smallSrc?: string; // Used in cases where we need a smaller version if the base image is too big!
@@ -20,7 +22,7 @@ type TimelineData = {
 
 type YearlyTimelineData = {
 	year: number;
-	events: Array<TimelineData>;
+	events: Event[];
 	id: string;
 };
 

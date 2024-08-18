@@ -16,9 +16,9 @@
 						<div
 							class="w-[80%] flex {(yearData.year + i) % 2 !== 0
 								? 'justify-end'
-								: 'justify-start'}"
+								: 'justify-start'} {i !== 0 && '-mt-32'} pointer-events-none"
 						>
-							<div class="w-[46%]">
+							<div class="w-[44%]">
 								{#if i === 0}
 									<h2
 										class="text-3xl font-bold text-foreground-pink-accent py-12 {yearData.year % 2 !== 0
