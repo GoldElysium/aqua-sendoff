@@ -25,7 +25,8 @@ export const load = async function () {
 					}
 				}
 			},
-			locale: locale === 'ja' ? 'jp' : locale
+			locale: locale === 'ja' ? 'jp' : locale,
+			sort: 'date'
 		},
 		{ addQueryPrefix: true }
 	);
