@@ -2,11 +2,8 @@
 	export let href = '';
 </script>
 
-<a {href} on:click class="h-fit text-foreground-blue-accent">
+<a {href} on:click class="h-fit">
 	<span>
 		<slot />
 	</span>
 </a>
-
-<style>
-</style>

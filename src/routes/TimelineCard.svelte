@@ -6,11 +6,11 @@
 </script>
 
 <div class="w-full flex gap-4 items-center">
-	<div class="{isRight ? 'order-2' : 'order-1'} text-container flex flex-col items-center">
-		<p class="text-sm">{dateToDMY(item.date)}</p>
-		<h2 class="text-lg">{item.title}</h2>
+	<div class="{isRight ? 'order-2' : 'order-1'} text-container">
+		<p class="text-sm text-foreground-blue">{dateToDMY(item.date)}</p>
+		<h2 class="text-xl font-bold">{item.title}</h2>
 
-		<p class="mt-4">{item.content}</p>
+		<p class="pt-4">{item.content}</p>
 	</div>
 	<div class="{isRight ? 'order-1' : 'order-2'} grid image-container">
 		{#each item.images as image}

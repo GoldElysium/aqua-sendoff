@@ -14,6 +14,9 @@ importers:
       qs:
         specifier: ^6.13.0
         version: 6.13.0
+      tailwind-merge:
+        specifier: ^2.5.2
+        version: 2.5.2
     devDependencies:
       '@inlang/paraglide-js':
         specifier: 1.11.2
@@ -2134,6 +2137,9 @@ packages:
   svelte@5.0.0-next.220:
     resolution: {integrity: sha512-ETTqNWJXr2RNnKjDZpHmVghBeD8lfFy1OO1BHQvNQXwmwu1rGIGre75vSVsLW35FYRXb/tJ7G225w9vrhY9eAg==}
     engines: {node: '>=18'}
+
+  tailwind-merge@2.5.2:
+    resolution: {integrity: sha512-kjEBm+pvD+6eAwzJL2Bi+02/9LFLal1Gs61+QB7HvTfQQ0aXwC5LGT8PEt1gS0CWKktKe6ysPTAy3cBC5MeiIg==}
 
   tailwindcss@3.4.9:
     resolution: {integrity: sha512-1SEOvRr6sSdV5IDf9iC+NU4dhwdqzF4zKKq3sAbasUWHEM6lsMhX+eNN5gkPx1BvLFEnZQEUFbXnGj8Qlp83Pg==}
@@ -4389,6 +4395,8 @@ snapshots:
       locate-character: 3.0.0
       magic-string: 0.30.11
       zimmerframe: 1.1.2
+
+  tailwind-merge@2.5.2: {}
 
   tailwindcss@3.4.9:
     dependencies:

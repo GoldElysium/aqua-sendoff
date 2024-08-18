@@ -7,11 +7,13 @@
 		const element = document.getElementById(`year-${year}`);
 		if (element) {
 			window.scrollTo({
-				top: element.offsetTop - window.innerHeight / 2,
+				top: element.offsetTop + (element.offsetParent as HTMLDivElement).offsetTop - window.innerHeight / 2 + 100,
 				behavior: 'smooth'
 			});
 		}
 	};
+
+	const step = 100 / (timelineData.length - 1);
 
 	// Function to set progress based on the index and offset
 	export function setProgress(index: number, offset: number) {
@@ -21,48 +23,51 @@
 
 <div class="progress-bar-container">
 	<div class="progress-bar">
-		<div class="progress-bar-fill" style="width: {progress}%;"></div>
-		{#each timelineData as { year }, index}
-			<div
-				class="year-landmark"
-				style="left: calc({(index / (timelineData.length - 1)) * 100}% - 8px);"
-			>
-				<div class="dot" on:click={() => scrollToYear(year)}></div>
-				<div class="year-label">{year}</div>
-			</div>
-		{/each}
+		<div class="absolute inset-x-0 -top-1 z-10 flex justify-between">
+			{#each timelineData as { year }, index}
+				<div
+					class="year-landmark"
+					style="left: calc({(index / (timelineData.length - 1)) * 100}% - 8px);"
+				>
+					<div class="dot {progress + 1 > (step * index) && 'active'}" on:click={() => scrollToYear(year)}></div>
+					<div class="year-label">{year}</div>
+				</div>
+			{/each}
+		</div>
+		<div class="progress-bar-fill" style="width: {progress}%; min-width: 8px;"></div>
 	</div>
 </div>
 
 <style>
 	.progress-bar-container {
 		position: sticky;
-		top: 30px;
+		top: 4.5rem;
 		z-index: 10;
 		display: flex;
 		justify-content: center;
-		margin-top: 1rem;
+		padding: 1rem 0;
 	}
 
 	.progress-bar {
 		position: relative;
 		width: 80%;
 		height: 6px;
-		background-color: #e0e0e0;
+		background-color: #F9C4CE;
 		border-radius: 3px;
-		padding: 0 8px;
+		/* padding: 0 8px; */
 	}
 
 	.progress-bar-fill {
 		position: absolute;
 		height: 100%;
-		background-color: #007bff;
+		background-color: #B9DFF4;
 		border-radius: 3px;
 		transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
 	.year-landmark {
-		position: absolute;
+		display: grid;
+		place-items: center;
 
 		text-align: center;
 	}
@@ -70,8 +75,7 @@
 	.dot {
 		width: 16px;
 		height: 16px;
-		background-color: #007bff;
-		border: 2px solid #ffffff;
+		background-color: #F9C4CE;
 		border-radius: 50%;
 		cursor: pointer;
 		transition:
@@ -79,15 +83,23 @@
 			transform 0.3s;
 	}
 
+	.dot.active {
+		background-color: #B9DFF4;
+	}
+
 	.dot:hover {
-		background-color: #0056b3;
+		background-color: #f8b8c4;
 		transform: scale(1.1);
+	}
+
+	.dot.active:hover {
+		background-color: #a9cef4;
 	}
 
 	.year-label {
 		margin-top: 10px;
 		font-size: 12px;
-		color: #333;
-		font-weight: bold;
+		color: white;
+		font-weight: medium;
 	}
 </style>

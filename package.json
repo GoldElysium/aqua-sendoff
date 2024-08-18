@@ -46,6 +46,7 @@
 	},
 	"dependencies": {
 		"@inlang/paraglide-sveltekit": "0.11.0",
-		"qs": "^6.13.0"
+		"qs": "^6.13.0",
+		"tailwind-merge": "^2.5.2"
 	}
 }
