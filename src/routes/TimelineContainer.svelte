@@ -57,8 +57,9 @@
 
 		calculateAnchor(middlePoint);
 
-		const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    	const scrollSpeed = Math.abs(scrollTop - lastScrollTop) / (currentTimestamp - lastTimestamp);
+		const scrollTop = window.scrollY || document.documentElement.scrollTop;
+		const scrollSpeed =
+			Math.abs(scrollTop - lastScrollTop) / (currentTimestamp - lastTimestamp);
 		currentAngle += scrollSpeed * 0.5 * (Math.random() > 0.5 ? 1 : -1);
 		animateSwing();
 
@@ -90,7 +91,7 @@
 		}
 
 		lastScrollTop = scrollTop;
-    	lastTimestamp = currentTimestamp;
+		lastTimestamp = currentTimestamp;
 	};
 
 	const updateLayout = () => {
@@ -110,8 +111,6 @@
 	});
 </script>
 
-<!-- Progress Bar -->
-
 <!-- Timeline Content -->
 <div
 	id="timeline-section"
@@ -122,7 +121,7 @@
 	<span class="anchor-line" style="height: {lineHeight}px">
 		<a
 			class="absolute bottom-0 translate-y-[88%] translate-x-[calc(-50%+1px)] grid place-items-center cursor-pointer"
-			href="{percDown >= 0.92 ? '/messages' : 'javascript:void(0)'}"
+			href={percDown >= 0.92 ? '/messages' : 'javascript:void(0)'}
 		>
 			{#if percDown >= 0.92}
 				<span class="w-20 h-20 bg-white opacity-20 animate-ping absolute rounded-full"
