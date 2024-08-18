@@ -1,13 +1,16 @@
 <script lang="ts">
 	import CreditListMember from './CreditListMember.svelte';
 	import type { CreditGroup } from '$lib/types/types';
+	import { onMount } from 'svelte';
 
 	export let credits: CreditGroup[] = [];
 
 	let isVertical: boolean = false; // Check if vertical view
 
-	let ratio = window.innerWidth / window.innerHeight;
-	if (ratio < 0.5) isVertical = true;
+	onMount(() => {
+		let ratio = window.innerWidth / window.innerHeight;
+		if (ratio < 0.5) isVertical = true;
+	});
 
 	/*
         Programatically split the credit group for every x Line
