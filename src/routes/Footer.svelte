@@ -1,5 +1,6 @@
 <footer
 	class="flex flex-col items-center pb-4"
+	id="footer-home"
 	style="background: linear-gradient(180deg, #2B35A0 0%, #2F1A8A 100%);"
 >
 	<p

@@ -17,6 +17,7 @@
 	let container: HTMLDivElement | null = null;
 	let layoutType: 'horizontal' | 'vertical' = 'horizontal';
 	let target: HTMLDivElement | null = null;
+	let footer: HTMLDivElement | null = null;
 	let percDown = 0;
 
 	let lastScrollTop = 0;
@@ -26,11 +27,13 @@
 	// Function to calculate the reference points for each section
 	// Function to handle scroll events
 	const calculateAnchor = (middlePoint: number) => {
-		if (container && target) {
+		if (container && target && footer) {
 			const containerRect = container.getBoundingClientRect();
-			percDown = 1 - containerRect.bottom / containerRect.height;
+			const footerRect = footer.getBoundingClientRect();
+
+			percDown = 1 - (containerRect.bottom + footerRect.bottom / 5) / containerRect.height;
 			const containerTop =
-				containerRect.top * -1 + middlePoint + 100 * percDown;
+				containerRect.top * -1 + middlePoint + (footerRect.bottom / 5 / window.devicePixelRatio) * percDown;
 
 			lineHeight = containerTop < 0 ? 0 : containerTop;
 		}
@@ -54,9 +57,7 @@
 		}
 
 		const currentTimestamp = Date.now();
-
 		const middlePoint = window.innerHeight / 2;
-
 		calculateAnchor(middlePoint);
 
 		const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -101,8 +102,11 @@
 	};
 
 	onMount(() => {
+		target = document.querySelector('#dive-deeper') as HTMLDivElement;
+		footer = document.querySelector('#footer-home') as HTMLDivElement;
+
 		updateLayout();
-		target = document.getElementById('dive-deeper') as HTMLDivElement;
+		onScroll();
 
 		window.addEventListener('scroll', onScroll);
 		window.addEventListener('resize', updateLayout);
@@ -123,9 +127,9 @@
 	<span class="anchor-line" style="height: {lineHeight}px">
 		<a
 			class="absolute bottom-0 translate-y-[88%] translate-x-[calc(-50%+1px)] grid place-items-center cursor-pointer"
-			href="{percDown >= 0.97 ? '/messages' : 'javascript:void(0)'}"
+			href="{percDown >= 0.95 ? '/messages' : 'javascript:void(0)'}"
 		>
-			{#if percDown >= 0.97}
+			{#if percDown >= 0.95}
 				<span class="w-20 h-20 bg-white opacity-20 animate-ping absolute rounded-full"
 				></span>
 			{/if}
