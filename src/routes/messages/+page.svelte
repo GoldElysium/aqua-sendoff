@@ -10,8 +10,6 @@
 
 <div class="grid place-items-center pt-16">
 	<div class=" max-w-[96rem] py-8">
-		<FanSubmissions data={data.data} />
+		<FanSubmissions data={data.submissions} />
 	</div>
 </div>
-
-

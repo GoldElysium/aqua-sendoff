@@ -1,4 +1,4 @@
-import * as env from '$env/static/private';
+import { CMS_REST_API_URL, DEV_PROJECT_SUBMISSIONS_SLUG, PROJECT_SLUG } from '$env/static/private';
 import type { PageServerLoad } from '../$types';
 import qs from 'qs';
 import type { Submission } from '$lib/types/CMS';
@@ -12,11 +12,8 @@ export const config = {
 	}
 };
 
-const cmsRestUrl = env.CMS_REST_API_URL;
 const projectSlug =
-	env.DEV_PROJECT_SUBMISSIONS_SLUG.length > 0
-		? env.DEV_PROJECT_SUBMISSIONS_SLUG
-		: env.PROJECT_SLUG;
+	DEV_PROJECT_SUBMISSIONS_SLUG.length > 0 ? DEV_PROJECT_SUBMISSIONS_SLUG : PROJECT_SLUG;
 
 export const load = async function () {
 	const query = qs.stringify(
@@ -30,12 +27,12 @@ export const load = async function () {
 		{ addQueryPrefix: true }
 	);
 
-	const formattedUrl = `${cmsRestUrl}${
-		cmsRestUrl?.endsWith('/') ? '' : '/'
+	const formattedUrl = `${CMS_REST_API_URL}${
+		CMS_REST_API_URL?.endsWith('/') ? '' : '/'
 	}api/submissions${query}`;
 	const data = await fetchAllFromCMS<Submission>(formattedUrl);
 
-	const retData: ArtSubmissionData[] = data.map((element: Submission) => {
+	const submissions: ArtSubmissionData[] = data.map((element: Submission) => {
 		return {
 			id: element.id,
 			author: element.author,
@@ -47,6 +44,6 @@ export const load = async function () {
 	});
 
 	return {
-		data: retData
+		submissions
 	};
 } satisfies PageServerLoad;
