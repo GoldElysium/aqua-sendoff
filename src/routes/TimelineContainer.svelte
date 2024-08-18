@@ -29,11 +29,13 @@
 	const calculateAnchor = (middlePoint: number) => {
 		if (container && target && footer) {
 			const containerRect = container.getBoundingClientRect();
-			const footerRect = footer.getBoundingClientRect();
+			const offset = 175 / window.devicePixelRatio;
 
-			percDown = 1 - (containerRect.bottom + footerRect.bottom / 5) / containerRect.height;
+			percDown = 1 - (containerRect.bottom + offset) / containerRect.height;
+			console.log(percDown, offset);
+
 			const containerTop =
-				containerRect.top * -1 + middlePoint + (footerRect.bottom / 5 / window.devicePixelRatio) * percDown;
+				containerRect.top * -1 + middlePoint + offset * percDown;
 
 			lineHeight = containerTop < 0 ? 0 : containerTop;
 		}
@@ -127,9 +129,9 @@
 	<span class="anchor-line" style="height: {lineHeight}px">
 		<a
 			class="absolute bottom-0 translate-y-[88%] translate-x-[calc(-50%+1px)] grid place-items-center cursor-pointer"
-			href="{percDown >= 0.95 ? '/messages' : 'javascript:void(0)'}"
+			href="{percDown >= 0.96 ? '/messages' : 'javascript:void(0)'}"
 		>
-			{#if percDown >= 0.95}
+			{#if percDown >= 0.96}
 				<span class="w-20 h-20 bg-white opacity-20 animate-ping absolute rounded-full"
 				></span>
 			{/if}
