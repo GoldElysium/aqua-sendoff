@@ -1,4 +1,4 @@
-import { env } from '$env/dynamic/private';
+import { BYPASS_IMAGINARY_PROXY, CMS_REST_API_URL } from '$env/static/private';
 import getImaginaryProxyImageURL from './imaginaryImageProxy';
 import type { Image } from '$lib/types/types';
 
@@ -8,8 +8,8 @@ function getProxyImageURL(
 	height: number | undefined,
 	quality = 80
 ): string {
-	if (env.BYPASS_IMAGINARY_PROXY && env.BYPASS_IMAGINARY_PROXY === 'true') {
-		return new URL(src, env.CMS_REST_API_URL).toString();
+	if (BYPASS_IMAGINARY_PROXY === 'true') {
+		return new URL(src, CMS_REST_API_URL).toString();
 	} else {
 		return getImaginaryProxyImageURL(src, width, height, quality);
 	}

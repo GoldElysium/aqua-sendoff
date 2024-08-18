@@ -32,4 +32,9 @@ type ArtSubmissionData = {
 	images: Array<Image>;
 };
 
-export type { Image, TimelineData, YearlyTimelineData, ArtSubmissionData };
+type CreditGroup = {
+	groupName: string;
+	members: Array<string>;
+};
+
+export type { Image, TimelineData, YearlyTimelineData, ArtSubmissionData, CreditGroup };

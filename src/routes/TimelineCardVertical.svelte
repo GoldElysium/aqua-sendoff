@@ -1,6 +1,7 @@
 <script lang="ts">
 	import dateToDMY from '$lib/js/dateToDMY';
 	import type { TimelineData } from '$lib/types/types';
+
 	export let item: TimelineData;
 </script>
 

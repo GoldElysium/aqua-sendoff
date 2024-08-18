@@ -1,8 +1,9 @@
 <script lang="ts">
 	import type { YearlyTimelineData } from '$lib/types/types';
+	import TimelineCard from './TimelineCard.svelte';
+
 	export let sectionRefs: HTMLDivElement[] = [];
 	export let timelineData: YearlyTimelineData[];
-	import TimelineCard from './TimelineCard.svelte';
 </script>
 
 <div class="mt-10">
