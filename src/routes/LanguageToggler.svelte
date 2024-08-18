@@ -6,6 +6,8 @@
 	import { availableLanguageTags, languageTag } from '$lib/paraglide/runtime';
 	import { i18n } from '$lib/i18n';
 
+	export let colorScheme = 'dark';
+
 	const langMap = {
 		en: 'English',
 		ja: '日本語',
@@ -13,9 +15,9 @@
 	};
 </script>
 
-<div class="text-foreground-blue-accent">
-	<Button class="h-fit text-foreground-blue-accent !p-2">
-		<LanguageOutline class="size-6 text-foreground-blue-accent" />
+<div>
+	<Button class="h-fit !p-2">
+		<LanguageOutline class="size-6 transition-colors {colorScheme === 'dark' ? 'text-foreground-blue-accent' : 'text-white'}" />
 	</Button>
 	<Dropdown>
 		{#each availableLanguageTags as language}

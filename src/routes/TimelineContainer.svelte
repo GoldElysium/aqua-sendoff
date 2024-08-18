@@ -7,13 +7,9 @@
 	import TimelineVertical from './TimelineVertical.svelte';
 	import TimelineProgressVertical from './TimelineProgressVertical.svelte';
 	import Logo from './Logo.svelte';
+	import { navbarOptions } from '$lib/navbar';
 
 	export let timelineData: YearlyTimelineData[] = getTempTimelineData();
-
-	const anchorOffset = {
-		horizontal: 150,
-		vertical: 100
-	};
 
 	let sectionRefs: HTMLDivElement[] = [];
 	let timelineProgress: TimelineProgress; // Reference to the TimelineProgress component
@@ -34,7 +30,7 @@
 			const containerRect = container.getBoundingClientRect();
 			percDown = 1 - containerRect.bottom / containerRect.height;
 			const containerTop =
-				containerRect.top * -1 + middlePoint + anchorOffset[layoutType] * percDown;
+				containerRect.top * -1 + middlePoint + 100 * percDown;
 
 			lineHeight = containerTop < 0 ? 0 : containerTop;
 		}
@@ -51,6 +47,12 @@
 	}
 
 	const onScroll = () => {
+		if (container?.offsetTop! <= window.scrollY) {
+			navbarOptions.set({ colorScheme: 'light' });
+		} else {
+			navbarOptions.set({ colorScheme: 'dark' });
+		}
+
 		const currentTimestamp = Date.now();
 
 		const middlePoint = window.innerHeight / 2;
