@@ -59,8 +59,9 @@
 
 		calculateAnchor(middlePoint);
 
-		const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    	const scrollSpeed = Math.abs(scrollTop - lastScrollTop) / (currentTimestamp - lastTimestamp);
+		const scrollTop = window.scrollY || document.documentElement.scrollTop;
+		const scrollSpeed =
+			Math.abs(scrollTop - lastScrollTop) / (currentTimestamp - lastTimestamp);
 		currentAngle += scrollSpeed * 0.5 * (Math.random() > 0.5 ? 1 : -1);
 		animateSwing();
 
@@ -92,7 +93,7 @@
 		}
 
 		lastScrollTop = scrollTop;
-    	lastTimestamp = currentTimestamp;
+		lastTimestamp = currentTimestamp;
 	};
 
 	const updateLayout = () => {
@@ -111,8 +112,6 @@
 		};
 	});
 </script>
-
-<!-- Progress Bar -->
 
 <!-- Timeline Content -->
 <div
