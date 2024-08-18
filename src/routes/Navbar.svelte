@@ -6,7 +6,7 @@
 	export let colorScheme: 'dark' | 'light' = 'dark';
 </script>
 
-<nav class="flex justify-between px-5 py-3 absolute t-0 w-full">
+<nav class="flex justify-between px-5 py-3 fixed top-0 z-20 w-full {colorScheme === 'dark' ? 'text-foreground-blue-accent' : 'text-white'}">
 	<a href="/">
 		<Logo />
 	</a>
