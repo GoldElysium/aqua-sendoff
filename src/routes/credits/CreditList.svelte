@@ -4,7 +4,7 @@
 
     export let credits: CreditGroup[] = [];
 
-	/* 
+	/*
         Programatically split the credit group for every x Line
     */
     // Parameters for line counts
@@ -23,7 +23,7 @@
 
 	for (let index = 0; index < credits.length; index++) {
 		let currentGroupLineCount =
-			credits[index].member.length * groupMemberLine + groupHeaderLine;
+			credits[index].members.length * groupMemberLine + groupHeaderLine;
 		lineCounter += currentGroupLineCount;
 
 		// If lines get too long, get the new one to next group
@@ -50,9 +50,9 @@
 
 <div class=" flex justify-center py-16 m-0">
 	<div class="flex flex-wrap justify-center w-3/4">
-		{#each groupedCredit as creditData, groupIndex}
+		{#each groupedCredit as creditData}
 			<div class="justify-center w-1/5 pb-6 text-white">
-				{#each creditData as data, i}
+				{#each creditData as data}
 					<CreditListMember {data} />
 				{/each}
 			</div>

@@ -34,7 +34,7 @@ type ArtSubmissionData = {
 
 type CreditGroup = {
 	groupName: string;
-	member: Array<string>;
-}
+	members: Array<string>;
+};
 
 export type { Image, TimelineData, YearlyTimelineData, ArtSubmissionData, CreditGroup };

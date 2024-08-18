@@ -4,6 +4,6 @@
 </script>
 
 <p class="pt-6 font-extrabold text-lg">{data.groupName}</p>
-{#each data.member as inside, index}
+{#each data.members as inside}
 	<p>{inside}</p>
 {/each}
