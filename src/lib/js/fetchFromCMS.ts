@@ -1,7 +1,7 @@
 const numObjsPerRequest = 100;
 const objDepth = 5;
 
-import { env } from '$env/dynamic/private';
+import { PAYLOAD_BYPASS_RATE_LIMIT_KEY } from '$env/static/private';
 import qs from 'qs';
 
 export default async function fetchAllFromCMS<T>(cmsUrl: string | URL): Promise<Array<T>> {
@@ -18,7 +18,7 @@ export default async function fetchAllFromCMS<T>(cmsUrl: string | URL): Promise<
 
 		const response = await fetch(urlObj, {
 			headers: {
-				'X-RateLimit-Bypass': env.PAYLOAD_BYPASS_RATE_LIMIT_KEY ?? ''
+				'X-RateLimit-Bypass': PAYLOAD_BYPASS_RATE_LIMIT_KEY ?? ''
 			} as Record<string, string>
 		});
 		const respData = await response.json();

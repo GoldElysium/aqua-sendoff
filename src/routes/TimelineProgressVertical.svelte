@@ -27,7 +27,7 @@
 				class="year-landmark"
 				style="top: calc({(index / (timelineData.length - 1)) * 100}% - 8px);"
 			>
-				<div class="dot" on:click={() => scrollToYear(year)}></div>
+				<button class="dot" on:click={() => scrollToYear(year)}></button>
 				<div class="year-label">{year}</div>
 			</div>
 		{/each}

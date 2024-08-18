@@ -1,4 +1,4 @@
-import { env } from '$env/dynamic/private';
+import * as env from '$env/static/private';
 import type { PageServerLoad } from '../$types';
 import qs from 'qs';
 import type { Submission } from '$lib/types/CMS';
@@ -13,8 +13,10 @@ export const config = {
 };
 
 const cmsRestUrl = env.CMS_REST_API_URL;
-const eventSlug = 'submissions';
-const projectSlug = env.DEV_PROJECT_SUBMISSIONS_SLUG ?? env.PROJECT_SLUG;
+const projectSlug =
+	env.DEV_PROJECT_SUBMISSIONS_SLUG.length > 0
+		? env.DEV_PROJECT_SUBMISSIONS_SLUG
+		: env.PROJECT_SLUG;
 
 export const load = async function () {
 	const query = qs.stringify(
@@ -30,7 +32,7 @@ export const load = async function () {
 
 	const formattedUrl = `${cmsRestUrl}${
 		cmsRestUrl?.endsWith('/') ? '' : '/'
-	}api/${eventSlug}${query}`;
+	}api/submissions${query}`;
 	const data = await fetchAllFromCMS<Submission>(formattedUrl);
 
 	const retData: ArtSubmissionData[] = data.map((element: Submission) => {
