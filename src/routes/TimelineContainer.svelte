@@ -6,7 +6,6 @@
 	import TimelineHorizontal from './TimelineHorizontal.svelte';
 	import TimelineVertical from './TimelineVertical.svelte';
 	import TimelineProgressVertical from './TimelineProgressVertical.svelte';
-	import TimelineProgressHorizontal from './TimelineProgressHorizontal.svelte';
 
 	export let timelineData: YearlyTimelineData[] = getTempTimelineData();
 

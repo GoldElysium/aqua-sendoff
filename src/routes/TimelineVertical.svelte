@@ -1,8 +1,9 @@
 <script lang="ts">
 	import type { YearlyTimelineData } from '$lib/types/types';
+	import TimelineCardVertical from './TimelineCardVertical.svelte';
+
 	export let sectionRefs: HTMLDivElement[] = [];
 	export let timelineData: YearlyTimelineData[];
-	import TimelineCardVertical from './TimelineCardVertical.svelte';
 </script>
 
 <div class="w-[85%] flex flex-col">

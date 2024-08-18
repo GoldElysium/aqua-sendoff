@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createLink } from '../lib/i18n-utils';
+	import { createLink } from '$lib/i18n-utils';
 	import LanguageToggler from './LanguageToggler.svelte';
 	import Logo from './Logo.svelte';
 	import NavItem from './NavItem.svelte';
@@ -13,6 +13,6 @@
 		<NavItem href={createLink('/')}>Timeline</NavItem>
 		<NavItem href={createLink('/messages')}>Messages</NavItem>
 		<NavItem href={createLink('/credits')}>Credits</NavItem>
-		<LanguageToggler></LanguageToggler>
+		<LanguageToggler />
 	</div>
 </nav>

@@ -3,5 +3,5 @@
 </script>
 
 <header>
-	<Navbar></Navbar>
+	<Navbar />
 </header>
