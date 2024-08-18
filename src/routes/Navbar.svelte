@@ -3,6 +3,7 @@
 	import LanguageToggler from './LanguageToggler.svelte';
 	import Logo from './Logo.svelte';
 	import NavItem from './NavItem.svelte';
+	import * as m from '$lib/paraglide/messages';
 
 	let colorSceheme = $navbarOptions.colorScheme;
 </script>
@@ -12,9 +13,9 @@
 		<Logo />
 	</a>
 	<div class="flex gap-5 items-center">
-		<NavItem href="/">Timeline</NavItem>
-		<NavItem href="/messages">Messages</NavItem>
-		<NavItem href="/credits">Credits</NavItem>
+		<NavItem href="/">{m.timeline()}</NavItem>
+		<NavItem href="/messages">{m.messages()}</NavItem>
+		<NavItem href="/credits">{m.credits()}</NavItem>
 		<LanguageToggler />
 	</div>
 </nav>
