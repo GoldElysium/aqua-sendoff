@@ -1912,8 +1912,6 @@ packages:
     resolution: {integrity: sha512-ETTqNWJXr2RNnKjDZpHmVghBeD8lfFy1OO1BHQvNQXwmwu1rGIGre75vSVsLW35FYRXb/tJ7G225w9vrhY9eAg==}
     engines: {node: '>=18'}
 
-<<<<<<< HEAD
-=======
   svg.draggable.js@2.2.2:
     resolution: {integrity: sha512-JzNHBc2fLQMzYCZ90KZHN2ohXL0BQJGQimK1kGk6AvSeibuKcIdDX9Kr0dT9+UJ5O8nYA0RB839Lhvk4CY4MZw==}
     engines: {node: '>= 0.8.0'}
@@ -1945,7 +1943,6 @@ packages:
     resolution: {integrity: sha512-h5IS/hKkuVCbKSieR9uQCj9w+zLHoPh+ce19bBYyqF53g6mnPB8sAtIbe1s9dh2S2fCmYX2xel1Ln3PJBbK4kw==}
     engines: {node: '>= 0.8.0'}
 
->>>>>>> fb88c9d66b685f5c5cdc55638e4c9d4f9dde11c5
   tailwind-merge@2.5.2:
     resolution: {integrity: sha512-kjEBm+pvD+6eAwzJL2Bi+02/9LFLal1Gs61+QB7HvTfQQ0aXwC5LGT8PEt1gS0CWKktKe6ysPTAy3cBC5MeiIg==}
 
@@ -3990,8 +3987,6 @@ snapshots:
       magic-string: 0.30.11
       zimmerframe: 1.1.2
 
-<<<<<<< HEAD
-=======
   svg.draggable.js@2.2.2:
     dependencies:
       svg.js: 2.7.1
@@ -4023,7 +4018,6 @@ snapshots:
     dependencies:
       svg.js: 2.7.1
 
->>>>>>> fb88c9d66b685f5c5cdc55638e4c9d4f9dde11c5
   tailwind-merge@2.5.2: {}
 
   tailwindcss@3.4.9:
