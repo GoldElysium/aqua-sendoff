@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1728"
+   height="37.000019"
+   viewBox="0 0 1728 37.000019"
+   fill="none"
+   version="1.1"
+   id="svg2"
+   sodipodi:docname="Union.svg"
+   inkscape:export-filename="Union.png"
+   inkscape:export-xdpi="120"
+   inkscape:export-ydpi="120"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview2"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       id="paint0_linear_202_388"
+       x1="864"
+       y1="-9.5"
+       x2="864"
+       y2="438"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0,1.8302126e-5)">
+      <stop
+         stop-color="#739AFF"
+         id="stop1" />
+      <stop
+         offset="1"
+         stop-color="#4B72D5"
+         id="stop2" />
+    </linearGradient>
+  </defs>
+  <path
+     fill-rule="evenodd"
+     clip-rule="evenodd"
+     d="M 20.16,11.425518 0,13.750418 v 20.2496 3 h 1728 v -3 -6.2998 l -20.16,-1.55 c -21.6,-1.55 -61.92,-4.6499 -103.68,-8.5248 -4.32,-0.4153 -8.66,-0.8394 -13.01,-1.2647 -36.24,-3.5445 -73.39,-7.1771397 -109.39,-6.4851997 -27.04,0.5018997 -54.09,3.2788997 -80.74,6.0156997 -14.5,1.4893 -28.89,2.9667 -43.1,4.0591 -41.76,3.1 -82.08,3.1 -123.84,3.1 -40.32,0 -82.08,0 -123.84,-4.65 -17.15,-1.9779 -34.56,-4.7971 -52.01,-7.6226 -23.58,-3.8170997 -47.22,-7.6456897 -70.39,-9.4270297 -30.262,-2.246455 -59.769,-1.237007 -89.615,-0.21593 -11.339,0.38793 -22.727,0.77754 -34.225,0.99091 -17.906,0.3323 -35.547,0.23715 -53.15,0.14221 -23.451,-0.12648 -46.836,-0.2526 -70.69,0.63278 -40.32,1.54997 -82.08,6.19988 -122.4,11.6247597 -4.281,0.5561 -8.562,1.1204 -12.841,1.6844 -37.466,4.9383 -74.812,9.8609 -110.999,9.1654 -24.935,-0.4627 -49.356,-3.4122 -73.877,-6.3736 -16.546,-1.9984 -33.138,-4.0022 -49.963,-5.2512 -24.214,-1.8617 -48.948,-2.0463 -73.889,-2.2324 -16.589,-0.1239 -33.27,-0.2484 -49.951,-0.8675 -16.023,-0.616 -32.274,-1.7215197 -48.572,-2.8302497 -24.712,-1.68117 -49.531,-3.36964 -73.828,-3.36964 -39.3435,0 -77.4088,4.12733 -99.7455,6.5492897 -1.372,0.1487 -2.6846,0.291 -3.9345,0.4256 z"
+     fill="url(#paint0_linear_202_388)"
+     id="path1"
+     inkscape:label="path1"
+     sodipodi:nodetypes="cccccccccccscscccsssccsccccccscc"
+     style="fill:url(#paint0_linear_202_388)" />
+</svg>
