@@ -7,3 +7,19 @@
 :root {
 	font-family: 'Balsamiq Sans', sans-serif;
 }
+
+.message {
+	@apply group-has-[#show-messages:checked]:block;
+}
+
+.artwork {
+	@apply group-has-[#show-artwork:checked]:block;
+}
+
+.photo {
+	@apply group-has-[#show-pictures:checked]:block;
+}
+
+.video {
+	@apply group-has-[#show-videos:checked]:block;
+}

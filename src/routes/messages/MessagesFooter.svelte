@@ -6,7 +6,7 @@
 	</p>
 	<a class="text-2xl mt-12 underline" href="/credits">Meet the crew</a>
 	<div class="text-center flex flex-col mt-24">
-		<small class="text-xs md:text-sm text-opacity-70">
+		<small class="text-xs md:text-sm text-opacity-70 mb-2">
 			This is a fan project, there is no affiliation with hololive and COVER corp
 		</small>
 		<small class="text-xs md:text-sm mb-4">2024 @ AKUKIN HQ</small>

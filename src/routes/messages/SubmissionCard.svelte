@@ -6,7 +6,7 @@
 	export let color: 'pink' | 'blue' | 'yellow' = 'pink';
 
 	// Function to generate a random rotation angle between -3 and 3 degrees
-	function getRandomRotation(maxRotation: number = 3): number {
+	function getRandomRotation(maxRotation: number = 2): number {
 		return Math.floor(Math.random() * (maxRotation * 2 + 1)) - maxRotation;
 	}
 
@@ -14,7 +14,7 @@
 </script>
 
 <div
-	class="p-4 rounded-md h-fit {color}"
+	class="p-4 break-inside-avoid rounded-md h-fit hidden min-w-0 {color} {$$props.class}"
 	class:message={data.message.length > 0}
 	class:artwork={data.images.length > 0 &&
 		data.images[0].type === 'image' &&
@@ -30,7 +30,13 @@
 	<p>{data.message}</p>
 	<div class="grid place-items-center">
 		{#each data.images as image}
-			<img src={image.src} alt={image.alt} class="w-11/12 h-auto" />
+			<div style="aspect-ratio: {image.width / image.height}" class="w-11/12 h-auto">
+				{#if image.type === 'image'}
+					<img src={image.src} alt={image.alt} decoding="async" loading="lazy" />
+				{:else if image.type === 'video'}
+					<iframe title={image.alt} src={image.src} class="w-full" />
+				{/if}
+			</div>
 		{/each}
 	</div>
 </div>
