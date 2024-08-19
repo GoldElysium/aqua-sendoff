@@ -5,20 +5,43 @@
 	import PastProjects from './PastProjects.svelte';
 	import MessagesFooter from './MessagesFooter.svelte';
 	import Title from './Title.svelte';
+	import { onMount } from 'svelte';
 
 	// Prefilled by server data; assuming the data is sorted by server side code.
 	// Data from the server is autofilled into this variable.
 	// Access the actual data with the "data" member.
 	export let data: PageData;
 
+	let submissionsSection: HTMLDivElement;
+
 	navbarOptions.set({
 		colorScheme: 'light'
+	});
+
+	onMount(() => {
+		const handler = () => {
+			if (submissionsSection.offsetTop < window.scrollY) {
+				navbarOptions.set({
+					colorScheme: 'dark'
+				});
+			} else {
+				navbarOptions.set({
+					colorScheme: 'light'
+				});
+			}
+		};
+
+		window.addEventListener('scroll', handler);
+
+		return () => {
+			window.removeEventListener('scroll', handler);
+		};
 	});
 </script>
 
 <Title />
 
-<div class="grid place-items-center text-white" id="background">
+<div class="grid place-items-center text-white" id="background" bind:this={submissionsSection}>
 	<div class="pt-8 w-full flex flex-col justify-center items-center" id="content">
 		<div class="max-w-[96rem] w-full flex flex-col items-center">
 			<h1 class="text-3xl font-medium z-10">from the crew, for Aku-tan</h1>

@@ -2,12 +2,41 @@
 	import type { PageData } from './$types';
 	import CreditList from './CreditList.svelte';
 	import CreditFooter from './CreditFooter.svelte';
+	import Title from '../messages/Title.svelte';
+	import { navbarOptions } from '$lib/navbar';
+	import { onMount } from 'svelte';
 
 	let src = '/assets/mainlogo.webp';
 
 	export let data: PageData;
 	let imgBoat = '/assets/Tamanegi on Boat.png';
 	let imgWater = '/assets/Water-wave.svg';
+
+	let creditSection: HTMLDivElement;
+
+	navbarOptions.set({
+		colorScheme: 'dark'
+	});
+
+	onMount(() => {
+		const handler = () => {
+			if (creditSection.offsetTop < window.scrollY) {
+				navbarOptions.set({
+					colorScheme: 'light'
+				});
+			} else {
+				navbarOptions.set({
+					colorScheme: 'dark'
+				});
+			}
+		};
+
+		window.addEventListener('scroll', handler);
+
+		return () => {
+			window.removeEventListener('scroll', handler);
+		};
+	});
 </script>
 
 <div class="h-screen flex items-center justify-center" style="background-color:rgb(177, 231, 248)">
@@ -20,7 +49,7 @@
 	</div>
 </div>
 
-<div class="-z-20">
+<div class="-z-20" bind:this={creditSection}>
 	<div
 		class="relative -mt-16"
 		style="background: linear-gradient(#739aff, #4b72d4 10%, #2b35a0 70%);"
@@ -40,6 +69,6 @@
 	</div>
 </div>
 
-<div style="height: 75vh;">
-	<CreditFooter></CreditFooter>
-</div>
+<Title />
+
+<CreditFooter />

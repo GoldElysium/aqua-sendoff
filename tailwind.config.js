@@ -13,7 +13,7 @@ export default {
 				'foreground-pink-accent': '#EC94CD',
 				'foreground-blue': '#B9DFF4',
 				'foreground-blue-accent': '#41499E',
-				'background-blue-accent': '#9598FF',
+				'background-blue-accent': '#2E3191',
 				'background-yellow': '#FFECD9'
 			}
 		}
