@@ -1,5 +1,5 @@
 <footer
-	class="flex flex-col items-center pb-4"
+	class="flex flex-col items-center pb-4 text-foreground-blue-dim"
 	id="footer-home"
 	style="background: linear-gradient(180deg, #2B35A0 0%, #2F1A8A 100%);"
 >
@@ -11,8 +11,8 @@
 		<span>deeper</span>
 	</p>
 
-	<small class="text-sm text-background-blue-accent mb-2 text-center"
+	<small class="text-sm mb-2 text-center"
 		>This is a fan project, there is no affiliation with hololive and COVER corp</small
 	>
-	<small class="text-background-blue-accent">2024 @ AKUKIN HQ</small>
+	<small>2024 @ AKUKIN HQ</small>
 </footer>

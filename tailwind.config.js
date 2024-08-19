@@ -14,6 +14,7 @@ export default {
 				'foreground-blue': '#B9DFF4',
 				'foreground-blue-accent': '#41499E',
 				'background-blue-accent': '#2E3191',
+				'foreground-blue-dim': '#9598FF',
 				'background-yellow': '#FFECD9'
 			}
 		}
