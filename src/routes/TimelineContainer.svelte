@@ -3,9 +3,8 @@
 	import getTempTimelineData from '$lib/js/getTempTimelineData';
 	import type { YearlyTimelineData } from '$lib/types/types';
 	import TimelineProgress from './TimelineProgressHorizontal.svelte';
-	import TimelineHorizontal from './TimelineHorizontal.svelte';
-	import TimelineVertical from './TimelineVertical.svelte';
-	import TimelineProgressVertical from './TimelineProgressVertical.svelte';
+	import Timeline from './Timeline.svelte';
+
 	import Logo from './Logo.svelte';
 	import { navbarOptions } from '$lib/navbar';
 
@@ -34,8 +33,7 @@
 			percDown = 1 - (containerRect.bottom + offset) / containerRect.height;
 			console.log(percDown, offset);
 
-			const containerTop =
-				containerRect.top * -1 + middlePoint + offset * percDown;
+			const containerTop = containerRect.top * -1 + middlePoint + offset * percDown;
 
 			lineHeight = containerTop < 0 ? 0 : containerTop;
 		}
@@ -129,7 +127,7 @@
 	<span class="anchor-line" style="height: {lineHeight}px">
 		<a
 			class="absolute bottom-0 translate-y-[88%] translate-x-[calc(-50%+1px)] grid place-items-center cursor-pointer"
-			href="{percDown >= 0.96 ? '/messages' : 'javascript:void(0)'}"
+			href={percDown >= 0.96 ? '/messages' : 'javascript:void(0)'}
 		>
 			{#if percDown >= 0.96}
 				<span class="w-20 h-20 bg-white opacity-20 animate-ping absolute rounded-full"
@@ -151,17 +149,9 @@
 			<h1 class="text-4xl font-bold z-10">It's been a long journey</h1>
 			<h2 class="text-lg z-10">7 years of voyage</h2>
 		</div>
-		{#if layoutType === 'horizontal'}
-			<TimelineProgress bind:this={timelineProgress} {timelineData} />
-			<TimelineHorizontal {timelineData} {sectionRefs} />
-		{/if}
 
-		{#if layoutType === 'vertical'}
-			<div class="flex">
-				<TimelineProgressVertical bind:this={timelineProgress} {timelineData} />
-				<TimelineVertical {timelineData} {sectionRefs} />
-			</div>
-		{/if}
+		<TimelineProgress bind:this={timelineProgress} {timelineData} />
+		<Timeline {timelineData} {sectionRefs} {layoutType} />
 	</div>
 </div>
 
