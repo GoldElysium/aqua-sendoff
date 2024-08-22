@@ -4,10 +4,10 @@
 
 	// Function to scroll to a specific year's section
 	const scrollToYear = (year: number) => {
-		const element = document.getElementById(`year-${year}`);
+		const element = document.getElementById(`year-heading-${year}`);
 		if (element) {
 			window.scrollTo({
-				top: element.offsetTop + (element.offsetParent as HTMLDivElement).offsetTop - window.innerHeight / 2 + 100,
+				top: element.offsetTop + window.innerHeight - 50,
 				behavior: 'smooth'
 			});
 		}
@@ -29,7 +29,10 @@
 					class="year-landmark"
 					style="left: calc({(index / (timelineData.length - 1)) * 100}% - 8px);"
 				>
-					<div class="dot {progress + 1 > (step * index) && 'active'}" on:click={() => scrollToYear(year)}></div>
+					<div
+						class="dot {progress + 1 > step * index && 'active'}"
+						on:click={() => scrollToYear(year)}
+					></div>
 					<div class="year-label">{year}</div>
 				</div>
 			{/each}
@@ -52,7 +55,7 @@
 		position: relative;
 		width: 80%;
 		height: 6px;
-		background-color: #F9C4CE;
+		background-color: #f9c4ce;
 		border-radius: 3px;
 		/* padding: 0 8px; */
 	}
@@ -60,7 +63,7 @@
 	.progress-bar-fill {
 		position: absolute;
 		height: 100%;
-		background-color: #B9DFF4;
+		background-color: #b9dff4;
 		border-radius: 3px;
 		transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 	}
@@ -68,14 +71,13 @@
 	.year-landmark {
 		display: grid;
 		place-items: center;
-
 		text-align: center;
 	}
 
 	.dot {
 		width: 16px;
 		height: 16px;
-		background-color: #F9C4CE;
+		background-color: #f9c4ce;
 		border-radius: 50%;
 		cursor: pointer;
 		transition:
@@ -84,7 +86,7 @@
 	}
 
 	.dot.active {
-		background-color: #B9DFF4;
+		background-color: #b9dff4;
 	}
 
 	.dot:hover {

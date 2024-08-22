@@ -31,7 +31,6 @@
 			const offset = 175 / window.devicePixelRatio;
 
 			percDown = 1 - (containerRect.bottom + offset) / containerRect.height;
-			console.log(percDown, offset);
 
 			const containerTop = containerRect.top * -1 + middlePoint + offset * percDown;
 
