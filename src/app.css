@@ -23,3 +23,27 @@
 .video {
 	@apply group-has-[#show-videos:checked]:block;
 }
+
+.invisible-left {
+	opacity: 0;
+	transform: translateX(-5%);
+}
+
+.invisible-right {
+	opacity: 0;
+	transform: translateX(5%);
+}
+
+.invisible-y {
+	opacity: 0;
+	transform: translateY(5%);
+}
+
+.visible {
+	opacity: 1;
+	transform: translateX(0), translateY(0);
+}
+
+.transition-section {
+	@apply transition-all ease-in-out duration-500;
+}

@@ -4,11 +4,17 @@
 	import type { Event, EventMedia } from '$lib/types/CMS';
 	export let item: Event;
 	export let isRight: boolean;
+	export let isVisible: boolean;
 
 	let images = item.images as { image: EventMedia }[];
 </script>
 
-<div class="w-full flex flex-col gap-4 items-center pointer-events-auto">
+<div
+	class="w-full flex flex-col gap-4 items-center pointer-events-auto transition-section"
+	class:invisible-left={!isRight && !isVisible}
+	class:invisible-right={isRight && !isVisible}
+	class:visible={isVisible}
+>
 	<div class="{isRight ? 'order-2' : 'order-1'} text-container">
 		<p class="text-sm text-foreground-blue">{dateToDMY(new Date(item.date))}</p>
 		<h2 class="text-xl font-bold">{item.title}</h2>
