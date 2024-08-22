@@ -59,12 +59,12 @@
 			style="background: linear-gradient(#2e3191, #1d1f5c40, #10113340, #0e0f2b);"
 		></div>
 		<div class="relative -z-0">
-			<p class="text-center text-6xl text-white pt-32 py-16">Website</p>
+			<!-- <p class="text-center text-6xl text-white pt-32 py-16">Website</p>
 			<CreditList credits={data.website}></CreditList>
 			<p class="text-center text-6xl text-white py-16">Video</p>
 			<CreditList credits={data.video}></CreditList>
 			<p class="text-center text-6xl text-white py-16">Other</p>
-			<CreditList credits={data.other}></CreditList>
+			<CreditList credits={data.other}></CreditList> -->
 		</div>
 	</div>
 </div>
