@@ -124,9 +124,13 @@
 	class="text-white py-16 relative"
 	style="background: linear-gradient(180deg, #4B72D4 0%, #2B35A0 100%);"
 >
-	<span class="anchor-line" style="height: {lineHeight}px">
+	<span
+		class="anchor-line {layoutType === 'vertical' &&
+			'z-[0] ' + (percDown >= 0.98 ? 'opacity-1' : 'opacity-50')} transition-opacity"
+		style="height: {lineHeight}px"
+	>
 		<a
-			class="absolute bottom-0 translate-y-[88%] translate-x-[calc(-50%+1px)] grid place-items-center cursor-pointer"
+			class="absolute bottom-0 translate-y-[88%] translate-x-[calc(-50%+1px)] grid place-items-center cursor-pointer }"
 			href={percDown >= 0.96 ? '/messages' : 'javascript:void(0)'}
 		>
 			{#if percDown >= 0.96}
@@ -144,7 +148,8 @@
 		</a>
 	</span>
 
-	<div class="z-10">
+	<!-- Anchor must be below this -->
+	<div class="z-[10] relative">
 		<div class="flex flex-col items-center justify-center p-5 gap-2">
 			<h1 class="text-4xl font-bold z-10">It's been a long journey</h1>
 			<h2 class="text-lg z-10">7 years of voyage</h2>
@@ -162,7 +167,6 @@
 		background: linear-gradient(180deg, #2e319152 32%, #2e3191 50%, #0f1134 100%);
 		top: 0;
 		left: 50%;
-		z-index: 1;
 		transform: translateX(-50%);
 		transition: height 0.1s ease-out;
 	}

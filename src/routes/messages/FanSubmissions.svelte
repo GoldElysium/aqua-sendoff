@@ -41,7 +41,7 @@
 	</div>
 	<!-- Submissions -->
 	<div class="flex justify-center py-8 w-10/12">
-		<div class="grid grid-cols-3 max-w-[96rem] gap-8">
+		<div class="grid grid-cols-1 md:grid-cols-3 max-w-[96rem] gap-8">
 			<!-- Column 1 -->
 			<div class="flex flex-col gap-8">
 				{#each col1 as item, i}

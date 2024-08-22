@@ -12,7 +12,10 @@
 <div class="mt-10">
 	{#each timelineData as yearData, index}
 		<div class="m-auto" id={`year-${yearData.year}`} bind:this={sectionRefs[index]}>
-			<div class="flex flex-col items-center" id="section-container">
+			<div
+				class="flex flex-col items-center {layoutType === 'vertical' && 'gap-8'}"
+				id="section-container"
+			>
 				{#each yearData.events as item, i}
 					<div
 						class="w-[80%] flex {layoutType === 'horizontal'
