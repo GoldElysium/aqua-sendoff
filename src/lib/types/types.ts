@@ -1,4 +1,4 @@
-import type { Event } from "./CMS";
+import type { Event } from './CMS';
 
 type Image = {
 	src: string;
@@ -36,7 +36,12 @@ type ArtSubmissionData = {
 
 type CreditGroup = {
 	groupName: string;
-	members: Array<string>;
+	data: [
+		{
+			role: string;
+			members: string[];
+		}
+	];
 };
 
 export type { Image, TimelineData, YearlyTimelineData, ArtSubmissionData, CreditGroup };
