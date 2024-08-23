@@ -27,7 +27,18 @@ export const load = async function () {
 
 	const [project] = await fetchAllFromCMS<Project>(formattedUrl);
 
-	return JSON.parse(
+	const creditJson = JSON.parse(
 		project.devprops!.find((prop) => prop.key === 'contributors')!.value
 	) as Record<string, CreditGroup[]>;
+
+	const credits: CreditGroup[] = creditJson.data.map((group) => {
+		return {
+			groupName: group.groupName,
+			data: group.data
+		};
+	});
+
+	return {
+		credits
+	};
 } satisfies PageServerLoad;

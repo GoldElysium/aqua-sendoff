@@ -5,7 +5,6 @@
 	import Title from '../messages/Title.svelte';
 	import { navbarOptions } from '$lib/navbar';
 	import { onMount } from 'svelte';
-	import type { CreditGroup } from '$lib/types/types';
 
 	let src = '/assets/mainlogo.webp';
 
@@ -15,12 +14,6 @@
 	let imgWater = '/assets/Water-wave.svg';
 
 	let creditSection: HTMLDivElement;
-	let creditData: CreditGroup[] = data.data.map((group) => {
-		return {
-			groupName: group.groupName,
-			data: group.data
-		};
-	});
 
 	navbarOptions.set({
 		colorScheme: 'dark'
@@ -67,7 +60,7 @@
 			style="background: linear-gradient(#2e3191, #1d1f5c40, #10113340, #0e0f2b);"
 		></div>
 		<div class="relative -z-0 w-[60%] m-auto">
-			{#each creditData as group}
+			{#each data.credits as group}
 				<CreditList credits={group}></CreditList>
 			{/each}`
 		</div>
