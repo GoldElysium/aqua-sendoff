@@ -7,16 +7,16 @@
 
 	const getGridColsStyle = (numOfRoles: number) => {
 		if (numOfRoles > 3) {
-			return 'grid-cols-4';
+			return 'md:grid-cols-4';
 		}
 
-		return 'grid-cols-2';
+		return 'md:grid-cols-2';
 	};
 </script>
 
-<div class="">
+<div>
 	<p class="text-center text-6xl text-white py-16">{credits.groupName}</p>
-	<div class="grid {getGridColsStyle(credits.data.length)} gap-4">
+	<div class="grid {getGridColsStyle(credits.data.length)} sm:grid-cols-2 gap-4">
 		{#each credits.data as creditData}
 			<div>
 				<p class="font-extrabold text-center text-2xl text-white">{creditData.role}</p>

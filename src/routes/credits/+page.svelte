@@ -56,7 +56,7 @@
 		style="background: linear-gradient(#739aff, #4b72d4 10%, #2b35a0 70%);"
 	>
 		<div
-			class="absolute -top-4 md:-top-8 inset-y-0 left-1/2 w-1 bg-gray-400 -z-0"
+			class="absolute -top-4 md:-top-8 inset-y-0 left-1/2 w-[0.25%] bg-gray-400 -z-0 opacity-70"
 			style="background: linear-gradient(#2e3191, #1d1f5c40, #10113340, #0e0f2b);"
 		></div>
 		<div class="relative -z-0 w-[60%] m-auto">
