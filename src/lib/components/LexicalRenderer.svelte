@@ -92,7 +92,7 @@
 	}
 
 	a:visited {
-		color: #e60073;
+		color: #ff5faf;
 	}
 
 	a:focus {
