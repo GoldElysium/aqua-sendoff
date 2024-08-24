@@ -126,15 +126,17 @@
 	<img
 		src="/assets/mainlogo.webp"
 		alt="main-logo"
-		class="absolute w-[40%] min-w-[300px] top-[40%] md:mt-8 -translate-y-full"
+		class="absolute w-[40%] sm:w-[50%] lg:w-[40%] min-w-[350px] top-[40%] md:mt-8 -translate-y-full"
 	/>
-	<img
-		src="/assets/ship.webp"
-		alt="ship"
-		class="ship-rock z-[1] absolute min-w-[300px] w-[25%] md:bottom-[10%] bottom-[11%]"
-	/>
-	<div class="z-[5] min-h-[100px] h-[10%] absolute bottom-0 w-full" bind:this={seaRef}>
-		<img src="assets/Water-wave.svg" class="w-full" alt="wave" />
+
+	<div class="z-[5] min-h-[100px] h-20 absolute bottom-0 w-full flex flex-col items-center" bind:this={seaRef}>
+		<img
+			src="/assets/ship.webp"
+			alt="ship"
+			class="ship-rock z-[6] absolute min-w-[300px] w-[24rem] md:w-[28rem] bottom-[50%]"
+		/>
+		<img src="assets/WaveTranslucent.svg" class="w-full z-[7] absolute" alt="wave" />
+		<img src="assets/Wave.svg" class="w-full" alt="wave" />
 		<div class="sea w-full h-full"></div>
 		<span
 			class="anchor-line {layoutType === 'vertical' &&
@@ -187,9 +189,7 @@
 		width: 4px;
 		background: linear-gradient(
 			180deg,
-			rgba(46, 49, 145, 0),
-			rgba(46, 49, 145, 0.1) 32%,
-			rgba(46, 49, 145, 0.3) 40%,
+			rgba(46, 49, 145, 0.3) 0%,
 			#2e3191 50%,
 			#0f1134 100%
 		);
