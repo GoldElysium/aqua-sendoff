@@ -1,3 +1,22 @@
 {
-    "$schema": "https://inlang.com/schema/inlang-message-format"
+    "$schema": "https://inlang.com/schema/inlang-message-format",
+	"timeline": "活動記録",
+	"messages": "メッセージ",
+	"credits": "クレジット",
+	"timelineHeader": "長い旅路と付き合いましたね…",
+	"timelineSubheader": "6年分の航海",
+	"timelineFooter": "DIVE DEEPER",
+	"footerAffiliation": "当サイトはファンからの非公式企画です。ホロライブ、COVER株式会社との協力は一切ありません。",
+	"videoHeader": "あくあクルーより、あくたんへ",
+	"messagesHeader": "あくたんへの書き込み",
+	"artworks": "イラスト",
+	"photos": "写真",
+	"videos": "動画",
+	"pastProjects": "過去のプロジェクト",
+	"endText0": "この6年間、本当にありがとう！",
+	"endText1": "側にいた時間、楽しかったです！お元気でね！",
+	"creditsLink": "スタッフの紹介",
+	"projectLeads": "プロジェクト担当",
+	"developers": "開発者",
+	"illustrators": "イラストレーター"
 }

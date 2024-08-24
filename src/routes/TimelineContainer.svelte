@@ -4,6 +4,7 @@
 	import type { YearlyTimelineData } from '$lib/types/types';
 	import TimelineProgress from './TimelineProgressHorizontal.svelte';
 	import Timeline from './Timeline.svelte';
+	import * as m from '$lib/paraglide/messages';
 
 	import Logo from './Logo.svelte';
 	import { navbarOptions } from '$lib/navbar';
@@ -174,8 +175,8 @@
 	<!-- Anchor must be below this -->
 	<div class="z-[10] relative">
 		<div class="flex flex-col items-center justify-center p-5 gap-2">
-			<h1 class="text-4xl font-bold z-10">It's been a long journey</h1>
-			<h2 class="text-lg z-10">7 years of voyage</h2>
+			<h1 class="text-4xl font-bold z-10">{m.timelineHeader()}</h1>
+			<h2 class="text-lg z-10">{m.timelineSubheader()}</h2>
 		</div>
 
 		<TimelineProgress bind:this={timelineProgress} {timelineData} />
