@@ -52,16 +52,14 @@
 							? (yearData.year + i) % 2 !== 0
 								? 'justify-end'
 								: 'justify-start'
-							: ''} {i !== 0 &&
-							layoutType === 'horizontal' &&
-							'-mt-32'} pointer-events-none"
+							: ''} pointer-events-none {i !== 0 && '-mt-12'}"
 						id="card-container"
 					>
 						<div class={layoutType === 'horizontal' ? 'w-[44%]' : ''}>
 							{#if i === 0}
 								<h2
 									class="text-3xl font-bold text-foreground-pink-accent py-12 transition-section
-									{layoutType === 'horizontal' ? (year_index % 2 !== 0 ? 'text-end' : 'text-start') : 'text-center'}"
+									{layoutType === 'horizontal' ? (year_index % 2 !== 0 ? 'text-start' : 'text-end') : 'text-center'}"
 									id={`year-heading-${yearData.year}`}
 									class:invisible-left={year_index % 2 !== 0 &&
 										!isInView[year_index]}
@@ -75,9 +73,7 @@
 
 							<TimelineCard
 								{item}
-								isRight={layoutType === 'vertical'
-									? false
-									: (year_index + i) % 2 === 0}
+								isRight={false}
 								isVisible={isInView[year_index]}
 							/>
 						</div>

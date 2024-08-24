@@ -15,7 +15,7 @@
 	class:invisible-right={isRight && !isVisible}
 	class:visible={isVisible}
 >
-	<div class="{isRight ? 'order-2' : 'order-1'} text-container">
+	<div class="{isRight ? 'order-2' : 'order-1'} text-container w-full">
 		<p class="text-sm text-foreground-blue">{dateToDMY(new Date(item.date))}</p>
 		<h2 class="text-xl font-bold">{item.title}</h2>
 
