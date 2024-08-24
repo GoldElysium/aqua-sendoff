@@ -10,6 +10,7 @@
 
 	export let timelineData: YearlyTimelineData[] = getTempTimelineData();
 
+	let seaRef: HTMLDivElement;
 	let sectionRefs: HTMLDivElement[] = [];
 	let timelineProgress: TimelineProgress; // Reference to the TimelineProgress component
 	let lineHeight = 0;
@@ -33,8 +34,10 @@
 			percDown = 1 - (containerRect.bottom + offset) / containerRect.height;
 
 			const containerTop = containerRect.top * -1 + middlePoint + offset * percDown;
-
-			lineHeight = containerTop < 0 ? 0 : containerTop;
+			lineHeight =
+				containerTop >= 0 && containerTop >= seaRef.clientHeight
+					? containerTop
+					: seaRef.clientHeight;
 		}
 	};
 
@@ -116,6 +119,49 @@
 	});
 </script>
 
+<div
+	class="h-screen flex flex-col items-center bg-gray-100"
+	style="background: linear-gradient(180deg, #C9F1FD 0%, #96DBF3 100%);"
+>
+	<img
+		src="/assets/mainlogo.webp"
+		alt="main-logo"
+		class="absolute w-[40%] min-w-[300px] top-[40%] md:mt-8 -translate-y-full"
+	/>
+	<img
+		src="/assets/ship.webp"
+		alt="ship"
+		class="ship-rock z-[1] absolute min-w-[300px] w-[25%] md:bottom-[10%] bottom-[11%]"
+	/>
+	<div class="z-[5] min-h-[100px] h-[10%] absolute bottom-0 w-full" bind:this={seaRef}>
+		<img src="assets/Water-wave.svg" class="w-full" alt="wave" />
+		<div class="sea w-full h-full"></div>
+		<span
+			class="anchor-line {layoutType === 'vertical' &&
+				'z-[0] ' + (percDown >= 0.98 ? 'opacity-1' : 'opacity-50')} transition-opacity"
+			style="height: {lineHeight}px"
+		>
+			<a
+				class="absolute bottom-0 translate-y-[88%] translate-x-[calc(-50%+1px)] grid place-items-center cursor-pointer }"
+				href={percDown >= 0.96 ? '/messages' : 'javascript:void(0)'}
+			>
+				{#if percDown >= 0.96}
+					<span class="w-20 h-20 bg-white opacity-20 animate-ping absolute rounded-full"
+					></span>
+				{/if}
+				<Logo
+					size={60}
+					style="transform: rotate({currentAngle}deg)"
+					class="fill-foreground-blue rotate-0 z-[5] origin-top transition-opacity {lineHeight ==
+					0
+						? 'opacity-0'
+						: 'opacity-100'}"
+				/>
+			</a>
+		</span>
+	</div>
+</div>
+
 <!-- Timeline Content -->
 <div
 	id="timeline-section"
@@ -123,30 +169,6 @@
 	class="text-white py-16 relative"
 	style="background: linear-gradient(180deg, #4B72D4 0%, #2B35A0 100%);"
 >
-	<span
-		class="anchor-line {layoutType === 'vertical' &&
-			'z-[0] ' + (percDown >= 0.98 ? 'opacity-1' : 'opacity-50')} transition-opacity"
-		style="height: {lineHeight}px"
-	>
-		<a
-			class="absolute bottom-0 translate-y-[88%] translate-x-[calc(-50%+1px)] grid place-items-center cursor-pointer }"
-			href={percDown >= 0.96 ? '/messages' : 'javascript:void(0)'}
-		>
-			{#if percDown >= 0.96}
-				<span class="w-20 h-20 bg-white opacity-20 animate-ping absolute rounded-full"
-				></span>
-			{/if}
-			<Logo
-				size={60}
-				style="transform: rotate({currentAngle}deg)"
-				class="fill-foreground-blue rotate-0 z-[5] origin-top transition-opacity {lineHeight ==
-				0
-					? 'opacity-0'
-					: 'opacity-100'}"
-			/>
-		</a>
-	</span>
-
 	<!-- Anchor must be below this -->
 	<div class="z-[10] relative">
 		<div class="flex flex-col items-center justify-center p-5 gap-2">
@@ -163,10 +185,43 @@
 	.anchor-line {
 		position: absolute;
 		width: 4px;
-		background: linear-gradient(180deg, #2e319152 32%, #2e3191 50%, #0f1134 100%);
-		top: 0;
+		background: linear-gradient(
+			180deg,
+			rgba(46, 49, 145, 0),
+			rgba(46, 49, 145, 0.1) 32%,
+			rgba(46, 49, 145, 0.3) 40%,
+			#2e3191 50%,
+			#0f1134 100%
+		);
+		top: 40%;
 		left: 50%;
 		transform: translateX(-50%);
 		transition: height 0.1s ease-out;
+	}
+
+	.ship-rock {
+		animation: rock 5s infinite cubic-bezier(0.645, 0.045, 0.355, 1);
+		transform-origin: bottom center;
+	}
+
+	@keyframes rock {
+		0%,
+		100% {
+			transform: translate(0, 0) rotate(0deg);
+		}
+		25% {
+			transform: translate(-5px, 5px) rotate(-3deg);
+		}
+		50% {
+			transform: translate(0, 10px) rotate(0deg);
+		}
+		75% {
+			transform: translate(5px, 5px) rotate(3deg);
+		}
+	}
+
+	.sea {
+		/* background: #4b72d4; */
+		background: linear-gradient(180deg, rgba(75, 114, 212, 0.8) 0%, rgba(75, 114, 212, 1) 25%);
 	}
 </style>
