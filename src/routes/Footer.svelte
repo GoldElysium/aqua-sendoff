@@ -1,3 +1,6 @@
+<script lang="ts">
+	import * as m from '$lib/paraglide/messages';
+</script>
 <footer
 	class="flex flex-col items-center pb-4 text-foreground-blue-dim"
 	id="footer-home"
@@ -11,8 +14,6 @@
 		<span>deeper</span>
 	</p>
 
-	<small class="text-sm mb-2 text-center"
-		>This is a fan project, there is no affiliation with hololive and COVER corp</small
-	>
+	<small class="text-sm mb-2 text-center">{m.footerAffiliation()}</small>
 	<small>2024 @ AKUKIN HQ</small>
 </footer>

@@ -6,6 +6,7 @@
 	import MessagesFooter from './MessagesFooter.svelte';
 	import Title from './Title.svelte';
 	import { onMount } from 'svelte';
+	import * as m from '$lib/paraglide/messages';
 
 	// Prefilled by server data; assuming the data is sorted by server side code.
 	// Data from the server is autofilled into this variable.
@@ -44,13 +45,13 @@
 <div class="grid place-items-center text-white" id="background" bind:this={submissionsSection}>
 	<div class="pt-8 w-full flex flex-col justify-center items-center" id="content">
 		<div class="max-w-[96rem] w-full flex flex-col items-center">
-			<h1 class="text-3xl font-medium z-10">from the crew, for Aku-tan</h1>
+			<h1 class="text-3xl font-medium z-10">{m.videoHeader()}</h1>
 			<div class="rounded-md w-10/12 my-16 aspect-video overflow-hidden" id="video-container">
 				<video class="w-full h-full" src=""></video>
 			</div>
-			<h1 class="text-3xl z-10 mb-8">Creations for you</h1>
+			<h1 class="text-3xl z-10 mb-8">{m.messagesHeader()}</h1>
 			<FanSubmissions data={data.submissions} />
-			<h1 class="text-3xl z-10 mb-8 mt-16">Past Projects</h1>
+			<h1 class="text-3xl z-10 mb-8 mt-16">{m.pastProjects()}</h1>
 			<PastProjects />
 		</div>
 		<MessagesFooter />
