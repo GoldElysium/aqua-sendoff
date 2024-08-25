@@ -2,8 +2,6 @@
 	export let href = '';
 </script>
 
-<a {href} class="h-fit transition-colors">
-	<span>
-		<slot />
-	</span>
+<a {href} target="_self" class="h-fit transition-colors">
+	<span><slot /></span>
 </a>
