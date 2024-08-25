@@ -140,9 +140,8 @@
 			alt="ship"
 			class="ship-rock z-[6] absolute min-w-[350px] w-1/4 max-w-[400px] bottom-[200%]"
 		/>
-		<!-- <img src="assets/WaveTranslucent.svg" class="w-full z-[7] bottom-0 absolute" alt="wave" /> -->
-		<Wave class="w-full z-[7] h-64 bottom-0 absolute" translucent />
-		<Wave class="w-full h-64 bottom-0 absolute" />
+		<img src="assets/WaveTranslucent.svg" class="w-full z-[7] h-64 bottom-0 absolute" alt="wave" />
+		<img src="assets/Wave.svg" class="w-full aspect-video h-64 bottom-0 absolute" alt="wave" />
 		<span
 			class="anchor-line {layoutType === 'vertical' &&
 				'z-[0] ' + (reachedEnd ? 'opacity-1' : 'opacity-50')} transition-opacity"
