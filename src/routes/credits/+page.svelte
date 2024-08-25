@@ -40,13 +40,17 @@
 	});
 </script>
 
-<div class="h-screen flex items-center justify-center" style="background-color:rgb(177, 231, 248)">
+<!-- https://stackoverflow.com/questions/61308575/tailwind-h-screen-doesn-t-work-properly-on-mobile-devices -->
+<div
+	class="h-[100svh] h-screen flex items-center justify-center"
+	style="background-color:rgb(177, 231, 248)"
+>
 	<img {src} alt="main-logo" class="w-3/4 md:w-1/2" />
 	<div class="absolute bottom-8 md:bottom-12 left-16 right-0 z-0 flex justify-center">
 		<img src={imgBoat} alt="tamanegi on boat" class="w-1/2 md:w-auto" />
 	</div>
-	<div class="absolute bottom-16 left-0 right-0 -z-0 justify-center -mt-16">
-		<img src={imgWater} alt="Water Wave" class="w-1/2 md:w-full" />
+	<div class="absolute bottom-16 -z-0 justify-center -mt-16">
+		<img src={imgWater} alt="Water Wave" class="" />
 	</div>
 </div>
 

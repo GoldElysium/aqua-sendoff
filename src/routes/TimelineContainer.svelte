@@ -119,8 +119,10 @@
 	});
 </script>
 
+<!-- Title page -->
+<!-- https://stackoverflow.com/questions/61308575/tailwind-h-screen-doesn-t-work-properly-on-mobile-devices -->
 <div
-	class="h-screen flex flex-col items-center bg-gray-100"
+	class="h-[100svh] h-screen flex flex-col items-center"
 	style="background: linear-gradient(180deg, #C9F1FD 0%, #96DBF3 100%);"
 >
 	<img
@@ -129,15 +131,17 @@
 		class="absolute w-[40%] sm:w-[50%] lg:w-[40%] min-w-[350px] top-[40%] md:mt-8 -translate-y-full"
 	/>
 
-	<div class="z-[5] min-h-[100px] h-20 absolute bottom-0 w-full flex flex-col items-center" bind:this={seaRef}>
+	<div
+		class="z-[5] min-h-[100px] absolute bottom-0 w-full flex flex-col items-center"
+		bind:this={seaRef}
+	>
 		<img
 			src="/assets/ship.webp"
 			alt="ship"
 			class="ship-rock z-[6] absolute min-w-[300px] w-[24rem] md:w-[28rem] bottom-[50%]"
 		/>
-		<img src="assets/WaveTranslucent.svg" class="w-full z-[7] absolute" alt="wave" />
-		<img src="assets/Wave.svg" class="w-full" alt="wave" />
-		<div class="sea w-full h-full"></div>
+		<img src="assets/WaveTranslucent.svg" class="w-full z-[7] absolute bottom-0" alt="wave" />
+		<img src="assets/Wave.svg" class="w-full bottom-0 absolute" alt="wave" />
 		<span
 			class="anchor-line {layoutType === 'vertical' &&
 				'z-[0] ' + (percDown >= 0.98 ? 'opacity-1' : 'opacity-50')} transition-opacity"
@@ -173,7 +177,7 @@
 >
 	<!-- Anchor must be below this -->
 	<div class="z-[10] relative">
-		<div class="flex flex-col items-center justify-center p-5 gap-2">
+		<div class="flex flex-col items-center p-5 gap-2 text-center">
 			<h1 class="text-4xl font-bold z-10">It's been a long journey</h1>
 			<h2 class="text-lg z-10">7 years of voyage</h2>
 		</div>
@@ -187,12 +191,7 @@
 	.anchor-line {
 		position: absolute;
 		width: 4px;
-		background: linear-gradient(
-			180deg,
-			rgba(46, 49, 145, 0.3) 0%,
-			#2e3191 50%,
-			#0f1134 100%
-		);
+		background: linear-gradient(180deg, rgba(46, 49, 145, 0.3) 0%, #2e3191 50%, #0f1134 100%);
 		top: 40%;
 		left: 50%;
 		transform: translateX(-50%);

@@ -71,11 +71,7 @@
 								</h2>
 							{/if}
 
-							<TimelineCard
-								{item}
-								isRight={false}
-								isVisible={isInView[year_index]}
-							/>
+							<TimelineCard {item} isRight={false} isVisible={isInView[year_index]} />
 						</div>
 					</div>
 				{/each}
