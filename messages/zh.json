@@ -1,3 +1,22 @@
 {
-    "$schema": "https://inlang.com/schema/inlang-message-format"
+    "$schema": "https://inlang.com/schema/inlang-message-format",
+    "timeline": "時間線",
+    "messages": "粉絲信息",
+    "credits": "參與人員名單",
+    "timelineHeader": "這是一段漫長的旅程",
+    "timelineSubheader": "6年的航程",
+    "timelineFooter": "DIVE DEEPER",
+    "footerAffiliation": "這是個粉絲企劃，與hololive和COVER社沒有任何關聯",
+    "videoHeader": "來自夸寶們，送給阿庫炭的",
+    "messagesHeader": "送給你的粉絲作品",
+    "artworks": "插畫",
+    "photos": "圖片",
+    "videos": "視頻",
+    "pastProjects": "過去的企劃",
+    "endText0": "謝謝這六年來的陪伴。",
+    "endText1": "我們在這段時間過得很開心，保重！",
+    "creditsLink": "查看夸寶們",
+    "projectLeads": "企劃負責人",
+    "developers": "開發人員",
+    "illustrators": "插畫師"
 }
