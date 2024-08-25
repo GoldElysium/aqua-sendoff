@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { CreditGroup } from '$lib/types/types';
+	import * as m from '$lib/paraglide/messages';
 
 	export let credits: CreditGroup;
 
