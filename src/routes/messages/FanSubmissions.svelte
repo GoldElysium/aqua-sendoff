@@ -22,19 +22,31 @@
 
 <section class="group flex flex-col items-center">
 	<div class="flex gap-4">
-		<div class="px-4 py-2 rounded-md">
+		<div
+			class="px-4 py-2 rounded-md"
+			on:click={() => document.getElementById('show-messages')?.click()}
+		>
 			<input type="checkbox" checked id="show-messages" />
 			<label class="text-center" for="show-messages">{m.messages()}</label>
 		</div>
-		<div class="px-4 py-2 rounded-md">
+		<div
+			class="px-4 py-2 rounded-md"
+			on:click={() => document.getElementById('show-artwork')?.click()}
+		>
 			<input type="checkbox" checked id="show-artwork" />
 			<label for="show-artwork">{m.artworks()}</label>
 		</div>
-		<div class="px-4 py-2 rounded-md">
+		<div
+			class="px-4 py-2 rounded-md"
+			on:click={() => document.getElementById('show-pictures')?.click()}
+		>
 			<input type="checkbox" checked id="show-pictures" />
 			<label for="show-pictures">{m.photos()}</label>
 		</div>
-		<div class="px-4 py-2 rounded-md">
+		<div
+			class="px-4 py-2 rounded-md"
+			on:click={() => document.getElementById('show-videos')?.click()}
+		>
 			<input type="checkbox" checked id="show-videos" />
 			<label for="show-videos">{m.videos()}</label>
 		</div>
