@@ -4,7 +4,6 @@
 	import type { YearlyTimelineData } from '$lib/types/types';
 	import TimelineProgress from './TimelineProgressHorizontal.svelte';
 	import Timeline from './Timeline.svelte';
-	import Wave from './Wave.svelte';
 
 	import Logo from './Logo.svelte';
 	import { navbarOptions } from '$lib/navbar';
@@ -50,7 +49,7 @@
 	}
 
 	const onScroll = () => {
-		if ((container?.offsetTop! - 256) <= window.scrollY) {
+		if (container?.offsetTop! - 256 <= window.scrollY) {
 			navbarOptions.set({ colorScheme: 'light' });
 		} else {
 			navbarOptions.set({ colorScheme: 'dark' });
@@ -101,7 +100,7 @@
 		layoutType = window.innerWidth >= 768 ? 'horizontal' : 'vertical';
 	};
 
-	$: reachedEnd = percDown >= 0.95
+	$: reachedEnd = percDown >= 0.95;
 
 	onMount(() => {
 		target = document.querySelector('#dive-deeper') as HTMLDivElement;
@@ -140,7 +139,11 @@
 			alt="ship"
 			class="ship-rock z-[6] absolute min-w-[350px] w-1/4 max-w-[400px] bottom-[200%]"
 		/>
-		<img src="assets/WaveTranslucent.svg" class="w-full z-[7] h-64 bottom-0 absolute" alt="wave" />
+		<img
+			src="assets/WaveTranslucent.svg"
+			class="w-full z-[7] h-64 bottom-0 absolute"
+			alt="wave"
+		/>
 		<img src="assets/Wave.svg" class="w-full aspect-video h-64 bottom-0 absolute" alt="wave" />
 		<span
 			class="anchor-line {layoutType === 'vertical' &&
