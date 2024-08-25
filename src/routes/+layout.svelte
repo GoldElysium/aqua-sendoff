@@ -6,8 +6,7 @@
 	import Header from './Header.svelte';
 </script>
 
-<Header />
-
 <ParaglideJS {i18n}>
+	<Header />
 	<slot />
 </ParaglideJS>

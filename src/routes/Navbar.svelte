@@ -22,9 +22,7 @@
 	</a>
 	<div class="flex gap-5 items-center">
 		<a href="/" class="h-fit transition-colors">{m.timeline()}</a>
-		<a href="/messages" class="h-fit transition-colors" on:click={() => console.log('asdsad')}
-			>{m.messages()}</a
-		>
+		<a href="/messages" class="h-fit transition-colors">{m.messages()}</a>
 		<a href="/credits" class="h-fit transition-colors">{m.credits()}</a>
 		<LanguageToggler {colorScheme} />
 	</div>
