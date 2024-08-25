@@ -50,7 +50,7 @@
 	}
 
 	const onScroll = () => {
-		if (container?.offsetTop! <= window.scrollY) {
+		if ((container?.offsetTop! - 256) <= window.scrollY) {
 			navbarOptions.set({ colorScheme: 'light' });
 		} else {
 			navbarOptions.set({ colorScheme: 'dark' });
