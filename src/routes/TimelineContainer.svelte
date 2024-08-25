@@ -120,7 +120,7 @@
 </script>
 
 <div
-	class="h-screen flex flex-col items-center bg-gray-100"
+	class="h-screen w-full flex flex-col items-center bg-gray-100"
 	style="background: linear-gradient(180deg, #C9F1FD 0%, #96DBF3 100%);"
 >
 	<img
@@ -129,7 +129,10 @@
 		class="absolute w-[40%] sm:w-[50%] lg:w-[40%] min-w-[350px] top-[40%] md:mt-8 -translate-y-full"
 	/>
 
-	<div class="z-[5] min-h-[100px] h-20 absolute bottom-0 w-full flex flex-col items-center" bind:this={seaRef}>
+	<div
+		class="z-[5] min-h-[100px] h-20 absolute bottom-0 w-full flex flex-col items-center"
+		bind:this={seaRef}
+	>
 		<img
 			src="/assets/ship.webp"
 			alt="ship"
@@ -187,12 +190,7 @@
 	.anchor-line {
 		position: absolute;
 		width: 4px;
-		background: linear-gradient(
-			180deg,
-			rgba(46, 49, 145, 0.3) 0%,
-			#2e3191 50%,
-			#0f1134 100%
-		);
+		background: linear-gradient(180deg, rgba(46, 49, 145, 0.3) 0%, #2e3191 50%, #0f1134 100%);
 		top: 40%;
 		left: 50%;
 		transform: translateX(-50%);
