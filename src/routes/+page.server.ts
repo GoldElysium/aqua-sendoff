@@ -19,10 +19,8 @@ export const load = async function () {
 	const query = qs.stringify(
 		{
 			where: {
-				project: {
-					slug: {
-						equals: projectSlug
-					}
+				'project.slug': {
+					equals: projectSlug
 				}
 			},
 			locale: locale === 'ja' ? 'jp' : locale,

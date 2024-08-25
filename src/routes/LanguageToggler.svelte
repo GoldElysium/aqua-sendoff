@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { PUBLIC_BASE_URL } from '$env/static/public';
 	import { Button, Dropdown, DropdownItem } from 'flowbite-svelte';
 	import { LanguageOutline } from 'flowbite-svelte-icons';
 	import { page } from '$app/stores';
@@ -22,7 +21,7 @@
 	<Dropdown>
 		{#each availableLanguageTags as language}
 			<DropdownItem
-				href={PUBLIC_BASE_URL + i18n.resolveRoute(i18n.route($page.url.pathname), language)}
+				href={i18n.route($page.url.pathname)}
 				hreflang={language}
 				rel="alternate"
 				aria-current={language === languageTag() ? 'current' : undefined}
