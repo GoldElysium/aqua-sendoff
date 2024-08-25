@@ -4,6 +4,7 @@
 	import type { YearlyTimelineData } from '$lib/types/types';
 	import TimelineProgress from './TimelineProgressHorizontal.svelte';
 	import Timeline from './Timeline.svelte';
+	import Wave from './Wave.svelte';
 
 	import Logo from './Logo.svelte';
 	import { navbarOptions } from '$lib/navbar';
@@ -34,10 +35,7 @@
 			percDown = 1 - (containerRect.bottom + offset) / containerRect.height;
 
 			const containerTop = containerRect.top * -1 + middlePoint + offset * percDown;
-			lineHeight =
-				containerTop >= 0 && containerTop >= seaRef.clientHeight
-					? containerTop
-					: seaRef.clientHeight;
+			lineHeight = Math.max(containerTop, 230);
 		}
 	};
 
@@ -138,10 +136,11 @@
 		<img
 			src="/assets/ship.webp"
 			alt="ship"
-			class="ship-rock z-[6] absolute min-w-[300px] w-[24rem] md:w-[28rem] bottom-[50%]"
+			class="ship-rock z-[6] absolute min-w-[350px] w-1/4 max-w-[400px] bottom-[200%]"
 		/>
-		<img src="assets/WaveTranslucent.svg" class="w-full z-[7] absolute bottom-0" alt="wave" />
-		<img src="assets/Wave.svg" class="w-full bottom-0 absolute" alt="wave" />
+		<!-- <img src="assets/WaveTranslucent.svg" class="w-full z-[7] bottom-0 absolute" alt="wave" /> -->
+		<Wave class="w-full z-[7] h-64 bottom-0 absolute" translucent />
+		<Wave class="w-full h-64 bottom-0 absolute" />
 		<span
 			class="anchor-line {layoutType === 'vertical' &&
 				'z-[0] ' + (percDown >= 0.98 ? 'opacity-1' : 'opacity-50')} transition-opacity"
@@ -192,7 +191,7 @@
 		position: absolute;
 		width: 4px;
 		background: linear-gradient(180deg, rgba(46, 49, 145, 0.3) 0%, #2e3191 50%, #0f1134 100%);
-		top: 40%;
+		top: -110%;
 		left: 50%;
 		transform: translateX(-50%);
 		transition: height 0.1s ease-out;
