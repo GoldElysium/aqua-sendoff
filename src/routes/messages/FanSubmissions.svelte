@@ -2,6 +2,7 @@
 	import * as m from '$lib/paraglide/messages';
 	import type { ArtSubmissionData } from '$lib/types/types';
 	import SubmissionCard from './SubmissionCard.svelte';
+	import Toggler from './Toggler.svelte';
 
 	export let data: ArtSubmissionData[];
 
@@ -21,35 +22,11 @@
 </script>
 
 <section class="group flex flex-col items-center">
-	<div class="flex gap-4">
-		<div
-			class="px-4 py-2 rounded-md"
-			on:click={() => document.getElementById('show-messages')?.click()}
-		>
-			<input type="checkbox" checked id="show-messages" />
-			<label class="text-center" for="show-messages">{m.messages()}</label>
-		</div>
-		<div
-			class="px-4 py-2 rounded-md"
-			on:click={() => document.getElementById('show-artwork')?.click()}
-		>
-			<input type="checkbox" checked id="show-artwork" />
-			<label for="show-artwork">{m.artworks()}</label>
-		</div>
-		<div
-			class="px-4 py-2 rounded-md"
-			on:click={() => document.getElementById('show-pictures')?.click()}
-		>
-			<input type="checkbox" checked id="show-pictures" />
-			<label for="show-pictures">{m.photos()}</label>
-		</div>
-		<div
-			class="px-4 py-2 rounded-md"
-			on:click={() => document.getElementById('show-videos')?.click()}
-		>
-			<input type="checkbox" checked id="show-videos" />
-			<label for="show-videos">{m.videos()}</label>
-		</div>
+	<div class="flex md:gap-4 gap-2">
+		<Toggler label={m.messages()} id="show-messages" />
+		<Toggler label={m.artworks()} id="show-artwork" />
+		<Toggler label={m.photos()} id="show-pictures" />
+		<Toggler label={m.videos()} id="show-videos" />
 	</div>
 	<!-- Submissions -->
 	<div class="flex justify-center py-8 w-10/12">
@@ -75,17 +52,3 @@
 		</div>
 	</div>
 </section>
-
-<style lang="postcss">
-	label {
-		color: #2e3191;
-	}
-	div :has(input[type='checkbox']) {
-		background-color: #ffcd9b;
-		border: 3px solid #ffd6ac;
-	}
-	input[type='checkbox'] {
-		background-color: #2e3191;
-		border-radius: 4px;
-	}
-</style>
