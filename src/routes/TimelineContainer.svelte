@@ -121,13 +121,13 @@
 <!-- Title page -->
 <!-- https://stackoverflow.com/questions/61308575/tailwind-h-screen-doesn-t-work-properly-on-mobile-devices -->
 <div
-	class="h-[100svh] h-screen flex flex-col items-center"
+	class="h-[100svh] md:h-screen flex flex-col items-center"
 	style="background: linear-gradient(180deg, #C9F1FD 0%, #96DBF3 100%);"
 >
 	<img
 		src="/assets/mainlogo.webp"
 		alt="main-logo"
-		class="absolute w-[40%] sm:w-[50%] lg:w-[40%] min-w-[350px] top-[40%] md:mt-8 -translate-y-full"
+		class="absolute w-[40%] sm:w-[50%] lg:w-[40%] min-w-[350px] top-[35%] md:mt-8 -translate-y-full"
 	/>
 
 	<div
@@ -137,21 +137,21 @@
 		<img
 			src="/assets/ship.webp"
 			alt="ship"
-			class="ship-rock z-[6] absolute min-w-[350px] w-1/4 max-w-[400px] bottom-[200%]"
+			class="ship-rock z-[6] absolute min-w-[300px] w-1/4 max-w-[400px] 2xl:max-w-[600px] bottom-[110%]"
 		/>
 		<img
 			src="assets/WaveTranslucent.svg"
-			class="w-full z-[7] h-64 bottom-0 absolute"
+			class="w-full z-[7] h-36 object-fit bottom-0 absolute"
 			alt="wave"
 		/>
-		<img src="assets/Wave.svg" class="w-full aspect-video h-64 bottom-0 absolute" alt="wave" />
+		<img src="assets/Wave.svg" class="w-full object-fit h-36 bottom-0 absolute" alt="wave" />
 		<span
 			class="anchor-line {layoutType === 'vertical' &&
 				'z-[0] ' + (reachedEnd ? 'opacity-1' : 'opacity-50')} transition-opacity"
 			style="height: {lineHeight}px"
 		>
 			<a
-				class="absolute bottom-0 translate-y-[88%] translate-x-[calc(-50%+1px)] grid place-items-center cursor-pointer }"
+				class="absolute bottom-0 translate-y-[88%] translate-x-[calc(-50%+1px)] grid place-items-center cursor-pointer"
 				href={reachedEnd ? '/messages' : 'javascript:void(0)'}
 			>
 				{#if reachedEnd}
