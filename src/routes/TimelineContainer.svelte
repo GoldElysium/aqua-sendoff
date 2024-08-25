@@ -30,7 +30,7 @@
 	const calculateAnchor = (middlePoint: number) => {
 		if (container && target && footer) {
 			const containerRect = container.getBoundingClientRect();
-			const offset = 175 / window.devicePixelRatio;
+			const offset = 400 / window.devicePixelRatio;
 
 			percDown = 1 - (containerRect.bottom + offset) / containerRect.height;
 
@@ -101,6 +101,8 @@
 		layoutType = window.innerWidth >= 768 ? 'horizontal' : 'vertical';
 	};
 
+	$: reachedEnd = percDown >= 0.95
+
 	onMount(() => {
 		target = document.querySelector('#dive-deeper') as HTMLDivElement;
 		footer = document.querySelector('#footer-home') as HTMLDivElement;
@@ -143,14 +145,14 @@
 		<Wave class="w-full h-64 bottom-0 absolute" />
 		<span
 			class="anchor-line {layoutType === 'vertical' &&
-				'z-[0] ' + (percDown >= 0.98 ? 'opacity-1' : 'opacity-50')} transition-opacity"
+				'z-[0] ' + (reachedEnd ? 'opacity-1' : 'opacity-50')} transition-opacity"
 			style="height: {lineHeight}px"
 		>
 			<a
 				class="absolute bottom-0 translate-y-[88%] translate-x-[calc(-50%+1px)] grid place-items-center cursor-pointer }"
-				href={percDown >= 0.96 ? '/messages' : 'javascript:void(0)'}
+				href={reachedEnd ? '/messages' : 'javascript:void(0)'}
 			>
-				{#if percDown >= 0.96}
+				{#if reachedEnd}
 					<span class="w-20 h-20 bg-white opacity-20 animate-ping absolute rounded-full"
 					></span>
 				{/if}
