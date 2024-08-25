@@ -8,14 +8,24 @@
 	$: colorScheme = $navbarOptions.colorScheme;
 </script>
 
-<nav class="flex justify-between px-5 py-3 fixed top-0 z-20 w-full backdrop-blur-sm {colorScheme === 'dark' ? 'text-foreground-blue-accent' : 'text-white'}">
+<nav
+	class="flex justify-between px-5 py-3 fixed top-0 z-20 w-full backdrop-blur-sm {colorScheme ===
+	'dark'
+		? 'text-foreground-blue-accent'
+		: 'text-white'}"
+>
 	<a href="/">
-		<Logo class="transition-colors {colorScheme === 'dark' ? 'fill-foreground-blue-accent' : 'fill-white'}" />
+		<Logo
+			class="transition-colors {colorScheme === 'dark'
+				? 'fill-foreground-blue-accent'
+				: 'fill-white'}"
+		/>
 	</a>
 	<div class="flex gap-5 items-center">
-		<NavItem href="/">{m.timeline()}</NavItem>
-		<NavItem href="/messages">{m.messages()}</NavItem>
-		<NavItem href="/credits">{m.credits()}</NavItem>
+		<a href="/" class="h-fit transition-colors">{m.timeline()}</a>
+		<a href="/messages" class="h-fit transition-colors">{m.messages()}</a>
+		<a href="/credits" class="h-fit transition-colors">{m.credits()}</a>
+
 		<LanguageToggler {colorScheme} />
 	</div>
 </nav>
