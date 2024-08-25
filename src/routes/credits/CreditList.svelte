@@ -1,7 +1,5 @@
 <script lang="ts">
-	import CreditListMember from './CreditListMember.svelte';
 	import type { CreditGroup } from '$lib/types/types';
-	import { onMount } from 'svelte';
 
 	export let credits: CreditGroup;
 
