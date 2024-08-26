@@ -47,5 +47,6 @@
 	"projectMangaerRole": "Project Manager",
 	"materialManageRole": "Material Manage",
 	"proofreadingRole": "Proofreading",
-	"othersRole": "Others"
+	"othersRole": "Others",
+	"developers": "Developers"
 }
