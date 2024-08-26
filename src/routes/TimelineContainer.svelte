@@ -141,6 +141,12 @@
 			class="ship-rock z-[6] absolute min-w-[300px] w-1/4 max-w-[400px] 2xl:max-w-[600px] bottom-[110%]"
 		/>
 		<img
+			src="/assets/Island.webp"
+			alt="island"
+			class="absolute z-[0] -bottom-4 md:right-[10%] -right-4 scale-75"
+		/>
+
+		<img
 			src="assets/WaveTranslucent.svg"
 			class="w-full z-[7] h-36 object-fit bottom-0 absolute"
 			alt="wave"
