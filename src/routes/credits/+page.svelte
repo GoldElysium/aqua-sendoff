@@ -59,17 +59,19 @@
 	<img src="/assets/Wave.svg" class="w-full object-fit h-36 bottom-0 absolute" alt="wave" />
 </div>
 
-<div class="-z-20" bind:this={creditSection}>
-	<div class="relative" style="background: linear-gradient(180deg, #4B72D4 0%, #2B35A0 100%);">
-		<div
-			class="absolute -top-28 inset-y-0 left-1/2 w-[0.25%] bg-gray-400 -z-0 opacity-70"
-			style="background: linear-gradient(#2e3191, #1d1f5c40, #10113340, #0e0f2b);"
-		></div>
-		<div class="relative -z-0 w-[60%] m-auto">
-			{#each data.credits.groups as group}
-				<CreditList credits={group} social={data.credits.social}></CreditList>
-			{/each}
-		</div>
+<div
+	class="relative pb-40"
+	style="background: linear-gradient(180deg, #4B72D4 0%, #2B35A0 100%);"
+	bind:this={creditSection}
+>
+	<div
+		class="absolute -top-28 inset-y-0 left-1/2 w-[0.25%] bg-gray-400 -z-0 opacity-70"
+		style="background: linear-gradient(#2e3191, #1d1f5c40, #10113340, #0e0f2b);"
+	></div>
+	<div class="relative -z-0 md:w-[60%] m-auto">
+		{#each data.credits.groups as group}
+			<CreditList credits={group} social={data.credits.social}></CreditList>
+		{/each}
 	</div>
 </div>
 

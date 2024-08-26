@@ -19,7 +19,9 @@
 </script>
 
 <div>
-	<p class="text-center text-6xl text-white py-16">{localLizedMessage(credits.groupName)}</p>
+	<p class="text-center text-6xl text-white py-16">
+		{localLizedMessage(credits.groupName)}
+	</p>
 	<div class="grid {getGridColsStyle(credits.data.length)} sm:grid-cols-2 gap-4">
 		{#each credits.data as creditData}
 			<div>
