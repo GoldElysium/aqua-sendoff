@@ -17,6 +17,18 @@
     "endText1": "側にいた時間、楽しかったです！お元気でね！",
     "creditsLink": "スタッフの紹介",
     "projectLeads": "プロジェクト担当",
-    "developers": "開発者",
-    "illustrators": "イラストレーター"
+    "illustrators": "イラストレーター",
+    "videoGroup": "動画制作",
+    "leadingRole": "担当",
+    "videoRole": "動画",
+    "musicRole": "音楽",
+    "designRole": "デサイン",
+    "helperRole": "協力",
+    "websiteGroup": "ウェブサイト制作",
+    "developerRole": "開発",
+    "artDesignRole": "アート・デサイン",
+    "designerRole": "デザイナー",
+    "translationGroup": "翻訳",
+    "cnTranslationRole": "中国語翻訳",
+    "jpTranslationRole": "和訳"
 }

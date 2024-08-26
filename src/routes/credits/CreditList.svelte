@@ -12,7 +12,7 @@
 
 		return 'md:grid-cols-2';
 	};
-	const localLizedMessage = (message: string) => {
+	const localizedMessage = (message: string) => {
 		// @ts-ignore
 		return m[message] ? m[message]() : message;
 	};
@@ -20,13 +20,13 @@
 
 <div>
 	<p class="text-center text-6xl text-white py-16">
-		{localLizedMessage(credits.groupName)}
+		{localizedMessage(credits.groupName + "Group")}
 	</p>
 	<div class="grid {getGridColsStyle(credits.data.length)} sm:grid-cols-2 gap-4">
 		{#each credits.data as creditData}
 			<div>
 				<p class="font-extrabold text-center text-2xl text-white">
-					{localLizedMessage(creditData.role)}
+					{localizedMessage(creditData.role + "Role")}
 				</p>
 				<div class="text-center flex flex-col">
 					{#each creditData.members as member}
