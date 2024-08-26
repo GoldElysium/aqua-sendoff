@@ -17,7 +17,17 @@
 	"endText1": "We had fun while it lasted, take care!",
 	"creditsLink": "Meet the crew",
 	"projectLeads": "Project Leads",
-	"developers": "Developers",
+	"developer": "Developer",
 	"illustrators": "Illustrators",
-	"video": "Video"
+	"video": "Video",
+	"leading": "Leading",
+	"music": "Music",
+	"design": "Design",
+	"helper": "Helper",
+	"website": "Website",
+	"artDesign": "Art Design",
+	"designer": "Designer",
+	"translation": "Translation",
+	"cnTranslation": "CN Translation",
+	"jpTranslation": "JP Translation"
 }

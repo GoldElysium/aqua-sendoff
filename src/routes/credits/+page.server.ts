@@ -3,7 +3,7 @@ import type { PageServerLoad } from '../$types';
 import qs from 'qs';
 import fetchAllFromCMS from '$lib/js/fetchFromCMS';
 import type { Project } from '$lib/types/CMS';
-import type { CreditGroup } from '$lib/types/types';
+import type { CreditData, CreditGroup } from '$lib/types/types';
 
 export const config = {
 	isr: {
@@ -29,14 +29,19 @@ export const load = async function () {
 
 	const creditJson = JSON.parse(
 		project.devprops!.find((prop) => prop.key === 'contributors')!.value
-	) as Record<string, CreditGroup[]>;
+	) as CreditData;
 
-	const credits: CreditGroup[] = creditJson.data.map((group) => {
+	const groups: CreditGroup[] = creditJson.groups.map((group) => {
 		return {
 			groupName: group.groupName,
 			data: group.data
 		};
 	});
+
+	const credits: CreditData = {
+		groups: groups,
+		social: creditJson.social
+	};
 
 	return {
 		credits

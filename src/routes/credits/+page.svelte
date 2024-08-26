@@ -66,9 +66,9 @@
 			style="background: linear-gradient(#2e3191, #1d1f5c40, #10113340, #0e0f2b);"
 		></div>
 		<div class="relative -z-0 w-[60%] m-auto">
-			{#each data.credits as group}
-				<CreditList credits={group}></CreditList>
-			{/each}`
+			{#each data.credits.groups as group}
+				<CreditList credits={group} social={data.credits.social}></CreditList>
+			{/each}
 		</div>
 	</div>
 </div>

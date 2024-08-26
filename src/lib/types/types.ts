@@ -44,4 +44,21 @@ type CreditGroup = {
 	];
 };
 
-export type { Image, TimelineData, YearlyTimelineData, ArtSubmissionData, CreditGroup };
+type SocialMap = {
+	[key: string]: string;
+};
+
+type CreditData = {
+	groups: CreditGroup[];
+	social: SocialMap;
+};
+
+export type {
+	Image,
+	TimelineData,
+	YearlyTimelineData,
+	ArtSubmissionData,
+	CreditGroup,
+	CreditData,
+	SocialMap
+};
