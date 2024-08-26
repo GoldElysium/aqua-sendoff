@@ -30,5 +30,22 @@
 	"designerRole": "Designer",
 	"translationGroup": "Translation",
 	"cnTranslationRole": "CN Translation",
-	"jpTranslationRole": "JP Translation"
+	"jpTranslationRole": "JP Translation",
+	"storyboardRole": "Storyboard",
+	"conceptRole": "Concept",
+	"illustratorRole": "Illustrator",
+	"submissionGroup": "Submission",
+	"checkingRole": "Checking",
+	"contactingRole": "Contacting",
+	"summarizingRole": "Summarizing",
+	"validatingRole": "Validating",
+	"executivesGroup": "Executives",
+	"artistContactRole": "Artist Contact",
+	"achievementListRole": "Achievement List",
+	"vodsArchiveRole": "VODs Archive",
+	"logoRole": "Logo",
+	"projectMangaerRole": "Project Manager",
+	"materialManageRole": "Material Manage",
+	"proofreadingRole": "Proofreading",
+	"othersRole": "Others"
 }
