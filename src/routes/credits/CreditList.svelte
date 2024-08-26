@@ -23,7 +23,9 @@
 	<div class="grid {getGridColsStyle(credits.data.length)} sm:grid-cols-2 gap-4">
 		{#each credits.data as creditData}
 			<div>
-				<p class="font-extrabold text-center text-2xl text-white">{creditData.role}</p>
+				<p class="font-extrabold text-center text-2xl text-white">
+					{localLizedMessage(creditData.role)}
+				</p>
 				<div class="text-center flex flex-col">
 					{#each creditData.members as member}
 						<a
