@@ -31,8 +31,9 @@
 						<a
 							href={social[member]}
 							target="_blank"
+							rel="external"
 							class="font-bold text-lg text-foreground-blue {social[member] &&
-								'underline'} ">{member}</a
+								'underline'}">{member}</a
 						>
 					{/each}
 				</div>
