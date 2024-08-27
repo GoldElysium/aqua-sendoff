@@ -1,4 +1,10 @@
-<svg class="-mb-0.5" viewBox="0 0 1728 537" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg
+	class="-mb-0.5"
+	viewBox="0 0 1728 537"
+	fill="none"
+	xmlns="http://www.w3.org/2000/svg"
+	style="background-color: #2B35A0;"
+>
 	<path d="M866 -2L866 411" stroke="url(#paint0_linear_477_53)" stroke-width="4" />
 	<path
 		d="M851.912 461.085L895.158 439L938.404 455.889L953.912 500.709L973 515H837L851.912 461.085Z"

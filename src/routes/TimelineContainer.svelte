@@ -8,6 +8,7 @@
 
 	import Logo from './Logo.svelte';
 	import { navbarOptions } from '$lib/navbar';
+	import Ship from './Ship.svelte';
 
 	export let timelineData: YearlyTimelineData[] = getTempTimelineData();
 
@@ -135,11 +136,8 @@
 		class="z-[5] min-h-[100px] absolute bottom-0 w-full flex flex-col items-center"
 		bind:this={seaRef}
 	>
-		<img
-			src="/assets/ship.webp"
-			alt="ship"
-			class="ship-rock z-[6] absolute min-w-[300px] w-1/4 max-w-[400px] 2xl:max-w-[600px] bottom-[110%]"
-		/>
+		<Ship />
+
 		<img
 			src="/assets/Island.webp"
 			alt="island"
@@ -206,27 +204,6 @@
 		left: 50%;
 		transform: translateX(-50%);
 		transition: height 0.1s ease-out;
-	}
-
-	.ship-rock {
-		animation: rock 5s infinite cubic-bezier(0.645, 0.045, 0.355, 1);
-		transform-origin: bottom center;
-	}
-
-	@keyframes rock {
-		0%,
-		100% {
-			transform: translate(0, 0) rotate(0deg);
-		}
-		25% {
-			transform: translate(-5px, 5px) rotate(-3deg);
-		}
-		50% {
-			transform: translate(0, 10px) rotate(0deg);
-		}
-		75% {
-			transform: translate(5px, 5px) rotate(3deg);
-		}
 	}
 
 	.sea {
