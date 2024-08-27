@@ -29,10 +29,10 @@
 					class="year-landmark"
 					style="left: calc({(index / (timelineData.length - 1)) * 100}% - 8px);"
 				>
-					<div
+					<button
 						class="dot {progress + 1 > step * index && 'active'}"
 						on:click={() => scrollToYear(year)}
-					></div>
+					></button>
 					<div class="year-label">{year}</div>
 				</div>
 			{/each}
