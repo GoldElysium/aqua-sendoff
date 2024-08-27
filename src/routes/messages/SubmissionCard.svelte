@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { messages } from '$lib/paraglide/messages';
 	import { languageTag } from '$lib/paraglide/runtime';
 	import type { ArtSubmissionData } from '$lib/types/types';
 	import iso3166 from 'iso-3166-1';
@@ -42,7 +41,7 @@
 </script>
 
 <div
-	class="p-4 break-inside-avoid rounded-md h-fit hidden min-w-0 {color} {$$props.class}"
+	class="p-4 break-inside-avoid rounded-md h-fit hidden min-w-0 mb-8 {color} {$$props.class}"
 	class:message={data.message && data.images.length === 0}
 	class:artwork={hasType(data, 'image') && hasSubType(data, 'artwork')}
 	class:photo={hasType(data, 'image') && hasSubType(data, 'picture')}
