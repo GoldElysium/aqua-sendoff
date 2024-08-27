@@ -30,8 +30,11 @@ type ArtSubmissionData = {
 	id: string;
 	author: string;
 	authorIcon?: Image;
-	message: string;
+	message: {
+		[lang: string]: string | undefined;
+	};
 	images: Array<Image>;
+	country?: string | null;
 };
 
 type CreditGroup = {

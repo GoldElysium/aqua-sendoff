@@ -5,6 +5,7 @@ import type { Submission } from '$lib/types/CMS';
 import fetchAllFromCMS from '$lib/js/fetchFromCMS';
 import getImageObject from '$lib/js/image';
 import type { ArtSubmissionData } from '$lib/types/types';
+import { extractFilAttr } from '$lib/js/extractFilAttr';
 
 export const config = {
 	isr: {
@@ -37,9 +38,14 @@ export const load = async function () {
 			id: element.id,
 			author: element.author,
 			authorIcon: element.srcIcon ? getImageObject(element.srcIcon) : undefined,
-			message: element.message ?? '',
+			message: {
+				en: element.message ?? '',
+				ja: extractFilAttr(element.filterableAttributes, 'message_jp') ?? '',
+				zh: extractFilAttr(element.filterableAttributes, 'message_zh') ?? ''
+			},
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			images: element.media!.map((mediaElem: any) => getImageObject(mediaElem))
+			images: element.media!.map((mediaElem: any) => getImageObject(mediaElem)),
+			country: extractFilAttr(element.filterableAttributes, 'country')
 		};
 	});
 

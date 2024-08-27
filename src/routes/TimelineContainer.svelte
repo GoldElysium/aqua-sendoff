@@ -12,7 +12,6 @@
 
 	export let timelineData: YearlyTimelineData[] = getTempTimelineData();
 
-	let seaRef: HTMLDivElement;
 	let sectionRefs: HTMLDivElement[] = [];
 	let timelineProgress: TimelineProgress; // Reference to the TimelineProgress component
 	let lineHeight = 0;

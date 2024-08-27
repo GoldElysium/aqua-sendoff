@@ -4,7 +4,7 @@
 </script>
 
 <div class="md:px-4 px-2 py-2 rounded-md btn" on:click={() => document.getElementById(id)?.click()}>
-	<input type="checkbox" checked {id} />
+	<input type="checkbox" checked {id} on:click|stopPropagation />
 	<label for={id} class="md:text-[1rem] text-xs" on:click|stopPropagation>{label}</label>
 </div>
 
