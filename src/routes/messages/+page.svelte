@@ -51,8 +51,8 @@
 			</div>
 			<h1 class="text-3xl z-10 mb-8">{m.messagesHeader()}</h1>
 			<FanSubmissions data={data.submissions} />
-			<h1 class="text-3xl z-10 mb-8 mt-16">{m.pastProjects()}</h1>
-			<PastProjects />
+			<h1 class="text-5xl z-10 mb-8 mt-16">{m.pastProjects()}</h1>
+			<PastProjects data={data.projectData} />
 		</div>
 		<MessagesFooter />
 	</div>

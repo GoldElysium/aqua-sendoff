@@ -73,7 +73,7 @@
 						class="img-sub"
 					/>
 				{:else if image.type === 'video'}
-					<iframe title={image.alt} src={image.src} class="w-full" />
+					<iframe title={image.alt} src={image.src} class="w-full aspect-video" />
 				{/if}
 			</div>
 		{/each}

@@ -56,6 +56,18 @@ type CreditData = {
 	social: SocialMap;
 };
 
+type SingleProject = {
+	name: string;
+	url: string;
+	image?: string;
+	video?: string;
+};
+
+type ProjectData = {
+	year: number;
+	projects: Array<SingleProject>;
+};
+
 export type {
 	Image,
 	TimelineData,
@@ -63,5 +75,7 @@ export type {
 	ArtSubmissionData,
 	CreditGroup,
 	CreditData,
-	SocialMap
+	SocialMap,
+	ProjectData,
+	SingleProject
 };
