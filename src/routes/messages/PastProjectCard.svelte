@@ -1,15 +1,29 @@
 <script lang="ts">
-	export let projectName: string;
-	export let url: string;
+	import type { SingleProject } from '$lib/types/types';
+
+	export let data: SingleProject;
 	export let color: 'pink' | 'blue' | 'yellow' = 'pink';
 </script>
 
-<a href={url} class="flex flex-col gap-4 p-4 rounded-md {color}" id="card" target="_blank">
+<a
+	href={data.url}
+	class="flex flex-col gap-4 p-4 rounded-md {color} md:w-[30vw] w-[90vw] mb-4"
+	id="card"
+	target="_blank"
+	rel="external"
+>
 	<div class="flex justify-between">
-		<h2 class="text-lg">{projectName}</h2>
-		<img src="/assets/open_external.svg" alt="Open in new tab" class="w-5 h-5" />
+		<h2 class="text-lg">{data.name}</h2>
+		{#if data.url}
+			<img src="/assets/open_external.svg" alt="Open in new tab" class="w-5 h-5" />
+		{/if}
 	</div>
-	<img src="/assets/Placeholder_Vertical.png" alt={projectName} />
+	{#if data.image}
+		<img src={data.image} alt="{data.name} image" class="" />
+	{/if}
+	{#if data.video}
+		<iframe src={data.video} class="w-full aspect-video" title={data.name}></iframe>
+	{/if}
 </a>
 
 <style>

@@ -1,25 +1,21 @@
 <script lang="ts">
+	import type { ProjectData } from '$lib/types/types';
 	import PastProjectCard from './PastProjectCard.svelte';
+	export let data: ProjectData[];
+	const colors = ['pink', 'blue', 'yellow'] as const;
 </script>
 
-<section class="group flex flex-col items-center">
+<section class="group flex flex-col items-center gap-4">
 	<!-- Submissions -->
-	<div class="grid place-items-center py-8 w-10/12">
-		<div class="grid max-w-[96rem] grid-cols-3 gap-12">
-			<PastProjectCard
-				projectName="Aqua 2nd Birthday Website"
-				url="https://hololive.hololivepro.com/talents/minato-aqua/"
-			/>
-			<PastProjectCard
-				projectName="Aqua 2nd Birthday Website"
-				url="https://hololive.hololivepro.com/talents/minato-aqua/"
-				color="blue"
-			/>
-			<PastProjectCard
-				projectName="Aqua 2nd Birthday Website"
-				url="https://hololive.hololivepro.com/talents/minato-aqua/"
-				color="yellow"
-			/>
+
+	{#each data as item}
+		<div class="flex flex-col items-center gap-2">
+			<h1 class="text-3xl font-medium">{item.year}</h1>
+			<div class="md:flex gap-2">
+				{#each item.projects as project, j}
+					<PastProjectCard data={project} color={colors[j % colors.length]} />
+				{/each}
+			</div>
 		</div>
-	</div>
+	{/each}
 </section>

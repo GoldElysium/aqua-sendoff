@@ -1,7 +1,8 @@
 <script lang="ts">
 	import LexicalRenderer from '$lib/components/LexicalRenderer.svelte';
-	import dateToDMY from '$lib/js/dateToDMY';
+	import getDateString from '$lib/js/dateToDMY';
 	import type { Event, EventMedia } from '$lib/types/CMS';
+	import { languageTag } from '$lib/paraglide/runtime';
 	export let item: Event;
 	export let isRight: boolean;
 	export let isVisible: boolean;
@@ -16,7 +17,9 @@
 	class:visible={isVisible}
 >
 	<div class="{isRight ? 'order-2' : 'order-1'} text-container w-full">
-		<p class="text-sm text-foreground-blue">{dateToDMY(new Date(item.date))}</p>
+		<p class="text-sm text-foreground-blue">
+			{getDateString(new Date(item.date), languageTag())}
+		</p>
 		<h2 class="text-xl font-bold">{item.title}</h2>
 
 		<div class="pt-4">

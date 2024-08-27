@@ -22,7 +22,6 @@
 							...isInView.slice(index + 1)
 						];
 						await tick();
-						console.log('in view', index);
 					}
 				}
 			}

@@ -6,6 +6,7 @@
 	import { navbarOptions } from '$lib/navbar';
 	import { onMount } from 'svelte';
 	import Ship from '../Ship.svelte';
+	import FrontPage from '../FrontPage.svelte';
 
 	export let data: PageData;
 
@@ -36,32 +37,12 @@
 	});
 </script>
 
-<!-- https://stackoverflow.com/questions/61308575/tailwind-h-screen-doesn-t-work-properly-on-mobile-devices -->
-<div
-	class="h-[100svh] md:h-screen flex items-center justify-center"
-	style="background-color:rgb(177, 231, 248)"
->
-	<img
-		src="/assets/mainlogo.webp"
-		alt="main-logo"
-		class="absolute w-[40%] sm:w-[50%] lg:w-[40%] min-w-[350px] top-[35%] md:mt-8 -translate-y-full"
-	/>
-	<div class="z-[5] min-h-[100px] absolute bottom-0 w-full flex flex-col items-center">
-		<Ship />
-		<img
-			src="/assets/Island.webp"
-			alt="island"
-			class="absolute z-[0] -bottom-4 md:right-[10%] -right-4 scale-75"
-		/>
-	</div>
-	<img
-		src="/assets/WaveTranslucent.svg"
-		class="w-full z-[7] h-36 object-fit bottom-0 absolute"
-		alt="wave"
-	/>
-
-	<img src="/assets/Wave.svg" class="w-full object-fit h-36 bottom-0 absolute" alt="wave" />
-</div>
+<FrontPage>
+	<div
+		class="absolute -mt-8 inset-y-0 left-1/2 w-[0.25%] -z-0"
+		style="background: #2e3191;"
+	></div>
+</FrontPage>
 
 <div
 	class="relative pb-40"

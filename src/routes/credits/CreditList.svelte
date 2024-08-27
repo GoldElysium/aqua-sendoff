@@ -24,7 +24,7 @@
 </script>
 
 <div>
-	<p class="text-center text-6xl text-white py-16">
+	<p class="text-center md:text-6xl text-4xl text-white py-16">
 		{localizedMessage(credits.groupName + 'Group')}
 	</p>
 	<div
@@ -33,7 +33,7 @@
 	>
 		{#each credits.data as creditData}
 			<div class="grid-item">
-				<p class="font-extrabold text-center text-2xl text-white">
+				<p class="font-extrabold text-center md:text-2xl text-xl text-white">
 					{localizedMessage(creditData.role + 'Role')}
 				</p>
 				<div class="text-center flex flex-col">

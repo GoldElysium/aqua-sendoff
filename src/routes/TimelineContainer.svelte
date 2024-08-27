@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import getTempTimelineData from '$lib/js/getTempTimelineData';
 	import type { YearlyTimelineData } from '$lib/types/types';
 	import TimelineProgress from './TimelineProgressHorizontal.svelte';
 	import Timeline from './Timeline.svelte';
@@ -8,11 +7,10 @@
 
 	import Logo from './Logo.svelte';
 	import { navbarOptions } from '$lib/navbar';
-	import Ship from './Ship.svelte';
+	import FrontPage from './FrontPage.svelte';
 
-	export let timelineData: YearlyTimelineData[] = getTempTimelineData();
+	export let timelineData: YearlyTimelineData[];
 
-	let seaRef: HTMLDivElement;
 	let sectionRefs: HTMLDivElement[] = [];
 	let timelineProgress: TimelineProgress; // Reference to the TimelineProgress component
 	let lineHeight = 0;
@@ -121,61 +119,31 @@
 </script>
 
 <!-- Title page -->
-<!-- https://stackoverflow.com/questions/61308575/tailwind-h-screen-doesn-t-work-properly-on-mobile-devices -->
-<div
-	class="h-[100svh] md:h-screen flex flex-col items-center"
-	style="background: linear-gradient(180deg, #C9F1FD 0%, #96DBF3 100%);"
->
-	<img
-		src="/assets/mainlogo.webp"
-		alt="main-logo"
-		class="absolute w-[40%] sm:w-[50%] lg:w-[40%] min-w-[350px] top-[35%] md:mt-8 -translate-y-full"
-	/>
-
-	<div
-		class="z-[5] min-h-[100px] absolute bottom-0 w-full flex flex-col items-center"
-		bind:this={seaRef}
+<FrontPage>
+	<span
+		class="anchor-line {layoutType === 'vertical' &&
+			'z-[0] ' + (reachedEnd ? 'opacity-1' : 'opacity-50')} transition-opacity"
+		style="height: {lineHeight}px"
 	>
-		<Ship />
-
-		<img
-			src="/assets/Island.webp"
-			alt="island"
-			class="absolute z-[0] -bottom-4 md:right-[10%] -right-4 scale-75"
-		/>
-
-		<img
-			src="assets/WaveTranslucent.svg"
-			class="w-full z-[7] h-36 object-fit bottom-0 absolute"
-			alt="wave"
-		/>
-		<img src="assets/Wave.svg" class="w-full object-fit h-36 bottom-0 absolute" alt="wave" />
-		<span
-			class="anchor-line {layoutType === 'vertical' &&
-				'z-[0] ' + (reachedEnd ? 'opacity-1' : 'opacity-50')} transition-opacity"
-			style="height: {lineHeight}px"
+		<a
+			class="absolute bottom-0 translate-y-[88%] translate-x-[calc(-50%+1px)] grid place-items-center cursor-pointer"
+			href={reachedEnd ? '/messages' : 'javascript:void(0)'}
 		>
-			<a
-				class="absolute bottom-0 translate-y-[88%] translate-x-[calc(-50%+1px)] grid place-items-center cursor-pointer"
-				href={reachedEnd ? '/messages' : 'javascript:void(0)'}
-			>
-				{#if reachedEnd}
-					<span class="w-20 h-20 bg-white opacity-20 animate-ping absolute rounded-full"
-					></span>
-				{/if}
-				<Logo
-					size={60}
-					style="transform: rotate({currentAngle}deg)"
-					class="fill-foreground-blue rotate-0 z-[5] origin-top transition-opacity {lineHeight ==
-					0
-						? 'opacity-0'
-						: 'opacity-100'}"
-				/>
-			</a>
-		</span>
-	</div>
-</div>
-
+			{#if reachedEnd}
+				<span class="w-20 h-20 bg-white opacity-20 animate-ping absolute rounded-full"
+				></span>
+			{/if}
+			<Logo
+				size={60}
+				style="transform: rotate({currentAngle}deg)"
+				class="fill-foreground-blue rotate-0 z-[5] origin-top transition-opacity {lineHeight ==
+				0
+					? 'opacity-0'
+					: 'opacity-100'}"
+			/>
+		</a>
+	</span>
+</FrontPage>
 <!-- Timeline Content -->
 <div
 	id="timeline-section"

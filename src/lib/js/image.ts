@@ -25,21 +25,28 @@ function getDownscaledProxyImageURL(cmsImage: any): string {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function getImageObject(cmsImageObj: any): Image {
 	let cmsImage;
+	let url;
+	let smallUrl;
 	if ('image' in cmsImageObj) {
 		cmsImage = cmsImageObj.image;
+		url =
+			cmsImage.width > cmsImage.height
+				? getProxyImageURL(cmsImage.url, 1920, undefined)
+				: getProxyImageURL(cmsImage.url, undefined, 1080);
+		smallUrl =
+			cmsImage.width > 800 || cmsImage.height > 800
+				? getDownscaledProxyImageURL(cmsImage)
+				: undefined;
 	} else {
 		cmsImage = cmsImageObj;
+		url = cmsImage.url;
+		smallUrl = cmsImage.url;
 	}
 
 	return {
-		src:
-			cmsImage.width > cmsImage.height
-				? getProxyImageURL(cmsImage.url, 1920, undefined)
-				: getProxyImageURL(cmsImage.url, undefined, 1080),
-		smallSrc:
-			cmsImage.width > 800 || cmsImage.height > 800
-				? getDownscaledProxyImageURL(cmsImage)
-				: undefined,
+		src: url,
+		smallSrc: smallUrl,
+
 		alt: cmsImage.alt ?? '',
 		height: cmsImage.height,
 		width: cmsImage.width,

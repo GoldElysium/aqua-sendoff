@@ -30,8 +30,11 @@ type ArtSubmissionData = {
 	id: string;
 	author: string;
 	authorIcon?: Image;
-	message: string;
+	message: {
+		[lang: string]: string | undefined;
+	};
 	images: Array<Image>;
+	country?: string | null;
 };
 
 type CreditGroup = {
@@ -53,6 +56,18 @@ type CreditData = {
 	social: SocialMap;
 };
 
+type SingleProject = {
+	name: string;
+	url: string;
+	image?: string;
+	video?: string;
+};
+
+type ProjectData = {
+	year: number;
+	projects: Array<SingleProject>;
+};
+
 export type {
 	Image,
 	TimelineData,
@@ -60,5 +75,7 @@ export type {
 	ArtSubmissionData,
 	CreditGroup,
 	CreditData,
-	SocialMap
+	SocialMap,
+	ProjectData,
+	SingleProject
 };
