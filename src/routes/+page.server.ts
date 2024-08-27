@@ -34,10 +34,15 @@ export const load = async function () {
 	const events = await fetchAllFromCMS<Event>(formattedUrl);
 
 	const grouppedEvents: Record<number, Event[]> = {};
-
 	events.forEach((event) => {
 		const date = new Date(event.date);
-		const year = date.getFullYear();
+		// Convert to JST
+		const jstOffset = 9 * 60; // JST is UTC+9
+		const jstDate = new Date(date.getTime() + jstOffset * 60 * 1000);
+		event.date = jstDate.toISOString();
+
+		// Get the year
+		const year = jstDate.getFullYear();
 
 		if (!grouppedEvents[year]) {
 			grouppedEvents[year] = [];
