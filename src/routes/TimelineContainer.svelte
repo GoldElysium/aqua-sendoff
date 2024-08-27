@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import getTempTimelineData from '$lib/js/getTempTimelineData';
 	import type { YearlyTimelineData } from '$lib/types/types';
 	import TimelineProgress from './TimelineProgressHorizontal.svelte';
 	import Timeline from './Timeline.svelte';
@@ -10,7 +9,7 @@
 	import { navbarOptions } from '$lib/navbar';
 	import FrontPage from './FrontPage.svelte';
 
-	export let timelineData: YearlyTimelineData[] = getTempTimelineData();
+	export let timelineData: YearlyTimelineData[];
 
 	let sectionRefs: HTMLDivElement[] = [];
 	let timelineProgress: TimelineProgress; // Reference to the TimelineProgress component
