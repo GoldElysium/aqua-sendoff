@@ -38,6 +38,7 @@
 	});
 </script>
 
+<!-- hehe -->
 <div class="mt-10">
 	{#each timelineData as yearData, year_index}
 		<div class="m-auto" id={`year-${yearData.year}`} bind:this={sectionRefs[year_index]}>
