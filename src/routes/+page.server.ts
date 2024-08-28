@@ -4,6 +4,8 @@ import qs from 'qs';
 import fetchAllFromCMS from '$lib/js/fetchFromCMS';
 import { languageTag } from '$lib/paraglide/runtime';
 import type { Event } from '$lib/types/CMS';
+import getImageObject from '$lib/js/image';
+import type { EventWithImages } from '$lib/types/types';
 
 export const config = {
 	isr: {
@@ -35,7 +37,7 @@ export const load = async function ({ depends }) {
 
 	const events = await fetchAllFromCMS<Event>(formattedUrl);
 
-	const grouppedEvents: Record<number, Event[]> = {};
+	const grouppedEvents: Record<number, EventWithImages[]> = {};
 	events.forEach((event) => {
 		const date = new Date(event.date);
 		// Convert to JST
@@ -50,7 +52,12 @@ export const load = async function ({ depends }) {
 			grouppedEvents[year] = [];
 		}
 
-		grouppedEvents[year].push(event);
+		event.images = event.images.map((image) => ({
+			id: image.id,
+			optimized: getImageObject(image)
+		})) as EventWithImages['images'];
+
+		grouppedEvents[year].push(event as EventWithImages);
 	});
 
 	return {

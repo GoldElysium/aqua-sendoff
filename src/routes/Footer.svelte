@@ -52,7 +52,7 @@
 	</p>
 
 	<small class="text-sm mb-2 text-center">{m.footerAffiliation()}</small>
-	<small>2024 @ AKUKIN HQ</small>
+	<small>2024 @ AKUKIN建設 HQ</small>
 </footer>
 
 {#if $scrollPos.section === 'tl'}

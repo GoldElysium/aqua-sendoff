@@ -54,7 +54,7 @@
 		<div class="flex gap-2 items-center">
 			<h1 class="text-2xl">{data.author}</h1>
 			{#if data.authorIcon}
-				<img src={data.authorIcon?.src} alt={data.author} class="w-8 h-8 rounded-full" />
+				<img src={data.authorIcon?.smallSrc ?? data.authorIcon.src} alt={data.author} class="w-8 h-8 rounded-full object-cover" />
 			{/if}
 		</div>
 		{#if data.country}
@@ -78,7 +78,7 @@
 						class="img-sub"
 					/>
 				{:else if image.type === 'video'}
-					<iframe title={image.alt} src={image.src} class="w-full aspect-video" />
+					<iframe title={image.alt} src={image.src} class="w-full aspect-video" loading="lazy" />
 				{/if}
 			</div>
 		{/each}

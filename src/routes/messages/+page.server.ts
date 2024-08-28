@@ -57,7 +57,7 @@ export const load = async function () {
 		return {
 			id: element.id,
 			author: element.author,
-			authorIcon: element.srcIcon ? getImageObject(element.srcIcon) : undefined,
+			authorIcon: element.srcIcon ? getImageObject(element.srcIcon, 128) : undefined,
 			message: {
 				en: element.message ?? '',
 				ja: extractFilAttr(element.filterableAttributes, 'message_jp') ?? '',

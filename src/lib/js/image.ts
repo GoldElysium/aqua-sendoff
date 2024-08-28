@@ -2,11 +2,11 @@ import { BYPASS_IMAGINARY_PROXY, CMS_REST_API_URL } from '$env/static/private';
 import getImaginaryProxyImageURL from './imaginaryImageProxy';
 import type { Image } from '$lib/types/types';
 
-function getProxyImageURL(
+export function getProxyImageURL(
 	src: string,
 	width: number | undefined,
 	height: number | undefined,
-	quality = 80
+	quality = 90
 ): string {
 	if (BYPASS_IMAGINARY_PROXY === 'true') {
 		return new URL(src, CMS_REST_API_URL).toString();
@@ -16,14 +16,14 @@ function getProxyImageURL(
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function getDownscaledProxyImageURL(cmsImage: any): string {
+export function getDownscaledProxyImageURL(cmsImage: any, target = 800): string {
 	return cmsImage.width > cmsImage.height
-		? getProxyImageURL(cmsImage.url, 800, undefined)
-		: getProxyImageURL(cmsImage.url, undefined, 800);
+		? getProxyImageURL(cmsImage.url, Math.min(cmsImage.width, target), undefined)
+		: getProxyImageURL(cmsImage.url, undefined, Math.min(cmsImage.height, target));
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function getImageObject(cmsImageObj: any): Image {
+function getImageObject(cmsImageObj: any, smallSize = 800): Image {
 	let cmsImage;
 	let url;
 	let smallUrl;
@@ -34,13 +34,19 @@ function getImageObject(cmsImageObj: any): Image {
 				? getProxyImageURL(cmsImage.url, 1920, undefined)
 				: getProxyImageURL(cmsImage.url, undefined, 1080);
 		smallUrl =
-			cmsImage.width > 800 || cmsImage.height > 800
-				? getDownscaledProxyImageURL(cmsImage)
+			cmsImage.width > smallSize || cmsImage.height > smallSize
+				? getDownscaledProxyImageURL(cmsImage, smallSize)
 				: undefined;
 	} else {
 		cmsImage = cmsImageObj;
-		url = cmsImage.url;
-		smallUrl = cmsImage.url;
+		url =
+			cmsImage.width > cmsImage.height
+				? getProxyImageURL(cmsImage.url, 1920, undefined)
+				: getProxyImageURL(cmsImage.url, undefined, 1080);
+		smallUrl =
+			cmsImage.width > smallSize || cmsImage.height > smallSize
+				? getDownscaledProxyImageURL(cmsImage, smallSize)
+				: undefined;
 	}
 
 	return {

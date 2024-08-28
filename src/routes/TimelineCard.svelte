@@ -1,13 +1,13 @@
 <script lang="ts">
 	import LexicalRenderer from '$lib/components/LexicalRenderer.svelte';
 	import getDateString from '$lib/js/dateToDMY';
-	import type { Event, EventMedia } from '$lib/types/CMS';
 	import { languageTag } from '$lib/paraglide/runtime';
-	export let item: Event;
+	import type { EventWithImages } from '$lib/types/types';
+	export let item: EventWithImages;
 	export let isRight: boolean;
 	export let isVisible: boolean;
 
-	let images = item.images as { image: EventMedia }[];
+	let images = item.images;
 </script>
 
 <div
@@ -29,7 +29,7 @@
 
 	<div class="{isRight ? 'order-1' : 'order-2'} grid image-container">
 		{#each images as image}
-			<img src={image.image.url} alt={image.image.alt} class="rounded" />
+			<img src={image.optimized.src} alt={image.optimized.alt} decoding="async" loading="lazy" class="rounded" />
 		{/each}
 	</div>
 </div>

@@ -1,4 +1,4 @@
-import type { Event } from './CMS';
+import type { Event, EventMedia } from './CMS';
 
 type Image = {
 	src: string;
@@ -20,9 +20,17 @@ type TimelineData = {
 	content: any;
 };
 
+type EventWithImages = Event & {
+	images: {
+		image?: string | EventMedia | null;
+		id?: string | null;
+		optimized: Image;
+	}[];
+}
+
 type YearlyTimelineData = {
 	year: number;
-	events: Event[];
+	events: EventWithImages[];
 	id: string;
 };
 
@@ -78,5 +86,6 @@ export type {
 	CreditData,
 	SocialMap,
 	ProjectData,
-	SingleProject
+	SingleProject,
+	EventWithImages
 };

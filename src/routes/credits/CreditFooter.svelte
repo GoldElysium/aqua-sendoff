@@ -50,7 +50,7 @@
 		<small class="text-xs md:text-sm text-opacity-70 mb-2">
 			{m.footerAffiliation()}
 		</small>
-		<small class="text-xs md:text-sm mb-4">2024 @ AKUKIN HQ</small>
+		<small class="text-xs md:text-sm mb-4">2024 @ AKUKIN建設 HQ</small>
 	</div>
 </footer>
 
