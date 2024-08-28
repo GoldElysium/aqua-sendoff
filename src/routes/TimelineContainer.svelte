@@ -9,6 +9,10 @@
 	import { navbarOptions } from '$lib/navbar';
 	import FrontPage from './FrontPage.svelte';
 
+	import BubbleColumn from './BubbleColumn.svelte';
+	import AnchorScroll from './messages/AnchorScroll.svelte';
+	import { scrollPos } from '$lib/scrollStore';
+
 	export let timelineData: YearlyTimelineData[];
 
 	let sectionRefs: HTMLDivElement[] = [];
@@ -23,12 +27,14 @@
 	let lastScrollTop = 0;
 	let lastTimestamp = 0;
 	let currentAngle = 0;
+	let containerHeight = 0;
 
 	// Function to calculate the reference points for each section
 	// Function to handle scroll events
 	const calculateAnchor = (middlePoint: number) => {
 		if (container && target && footer) {
 			const containerRect = container.getBoundingClientRect();
+			containerHeight = containerRect.height;
 			const offset = 400 / window.devicePixelRatio;
 
 			percDown = 1 - (containerRect.bottom + offset) / containerRect.height;
@@ -54,7 +60,6 @@
 		} else {
 			navbarOptions.set({ colorScheme: 'dark' });
 		}
-
 		const currentTimestamp = Date.now();
 		const middlePoint = window.innerHeight / 2;
 		calculateAnchor(middlePoint);
@@ -105,9 +110,13 @@
 	onMount(() => {
 		target = document.querySelector('#dive-deeper') as HTMLDivElement;
 		footer = document.querySelector('#footer-home') as HTMLDivElement;
+		containerHeight = container?.getBoundingClientRect()?.height || 0;
 
 		updateLayout();
 		onScroll();
+		scrollPos.set({
+			section: 'tlHome'
+		});
 
 		window.addEventListener('scroll', onScroll);
 		window.addEventListener('resize', updateLayout);
@@ -119,7 +128,7 @@
 </script>
 
 <!-- Title page -->
-<FrontPage>
+<FrontPage targetElement={container}>
 	<span
 		class="anchor-line {layoutType === 'vertical' &&
 			'z-[0] ' + (reachedEnd ? 'opacity-1' : 'opacity-50')} transition-opacity"
@@ -148,7 +157,7 @@
 <div
 	id="timeline-section"
 	bind:this={container}
-	class="text-white py-16 relative"
+	class="text-white py-16 relative overflow-hidden"
 	style="background: linear-gradient(180deg, #4B72D4 0%, #2B35A0 100%);"
 >
 	<!-- Anchor must be below this -->
@@ -161,7 +170,14 @@
 		<TimelineProgress bind:this={timelineProgress} {timelineData} />
 		<Timeline {timelineData} {sectionRefs} {layoutType} />
 	</div>
+	<div class="opacity-10">
+		<BubbleColumn bubbleCount={50} loop durationFixed={containerHeight * 8} randomizeStart />
+	</div>
 </div>
+
+{#if $scrollPos.section === 'tlFooter'}
+	<AnchorScroll targetElement={container} section="tl" direction="top"></AnchorScroll>
+{/if}
 
 <style>
 	.anchor-line {
