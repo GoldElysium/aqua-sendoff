@@ -1,7 +1,6 @@
 <script>
 	import { ParaglideJS } from '@inlang/paraglide-sveltekit';
 	import { i18n } from '$lib/i18n';
-	import { languageTag } from '$lib/paraglide/runtime';
 	import * as m from '$lib/paraglide/messages';
 
 	import '../app.css';
