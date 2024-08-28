@@ -7,6 +7,8 @@
 	import { onMount } from 'svelte';
 	import Ship from '../Ship.svelte';
 	import FrontPage from '../FrontPage.svelte';
+	import { scrollPos } from '$lib/scrollStore';
+	import AnchorScroll from '../messages/AnchorScroll.svelte';
 
 	export let data: PageData;
 
@@ -29,6 +31,10 @@
 			}
 		};
 
+		scrollPos.set({
+			section: 'crHome'
+		});
+
 		window.addEventListener('scroll', handler);
 
 		return () => {
@@ -37,7 +43,7 @@
 	});
 </script>
 
-<FrontPage>
+<FrontPage targetElement={creditSection}>
 	<div
 		class="absolute -mt-8 inset-y-0 left-1/2 w-[0.25%] -z-0"
 		style="background: #2e3191;"
@@ -63,3 +69,7 @@
 <Title />
 
 <CreditFooter />
+
+{#if $scrollPos.section === 'crFooter'}
+	<AnchorScroll targetElement={creditSection} section="cr" direction="top"></AnchorScroll>
+{/if}

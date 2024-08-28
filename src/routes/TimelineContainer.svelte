@@ -8,16 +8,18 @@
 	import Logo from './Logo.svelte';
 	import { navbarOptions } from '$lib/navbar';
 	import FrontPage from './FrontPage.svelte';
+	import AnchorScroll from './messages/AnchorScroll.svelte';
+	import { scrollPos } from '$lib/scrollStore';
 
 	export let timelineData: YearlyTimelineData[];
 
 	let sectionRefs: HTMLDivElement[] = [];
 	let timelineProgress: TimelineProgress; // Reference to the TimelineProgress component
 	let lineHeight = 0;
-	let container: HTMLDivElement | null = null;
+	let container: HTMLDivElement;
 	let layoutType: 'horizontal' | 'vertical' = 'horizontal';
-	let target: HTMLDivElement | null = null;
-	let footer: HTMLDivElement | null = null;
+	let target: HTMLDivElement;
+	let footer: HTMLDivElement;
 	let percDown = 0;
 
 	let lastScrollTop = 0;
@@ -54,7 +56,6 @@
 		} else {
 			navbarOptions.set({ colorScheme: 'dark' });
 		}
-
 		const currentTimestamp = Date.now();
 		const middlePoint = window.innerHeight / 2;
 		calculateAnchor(middlePoint);
@@ -108,6 +109,9 @@
 
 		updateLayout();
 		onScroll();
+		scrollPos.set({
+			section: 'tlHome'
+		});
 
 		window.addEventListener('scroll', onScroll);
 		window.addEventListener('resize', updateLayout);
@@ -119,7 +123,7 @@
 </script>
 
 <!-- Title page -->
-<FrontPage>
+<FrontPage targetElement={container}>
 	<span
 		class="anchor-line {layoutType === 'vertical' &&
 			'z-[0] ' + (reachedEnd ? 'opacity-1' : 'opacity-50')} transition-opacity"
@@ -162,6 +166,10 @@
 		<Timeline {timelineData} {sectionRefs} {layoutType} />
 	</div>
 </div>
+
+{#if $scrollPos.section === 'tlFooter'}
+	<AnchorScroll targetElement={container} section="tl" direction="top"></AnchorScroll>
+{/if}
 
 <style>
 	.anchor-line {
