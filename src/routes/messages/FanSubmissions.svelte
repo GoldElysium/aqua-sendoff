@@ -24,7 +24,7 @@
 				});
 			},
 			{
-				threshold: 0.01 // Adjust as needed
+				threshold: 0.0001 // Adjust as needed
 			}
 		);
 
