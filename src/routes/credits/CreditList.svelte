@@ -23,8 +23,8 @@
 	};
 </script>
 
-<div>
-	<p class="text-center md:text-6xl text-4xl text-white py-16">
+<div class="mb-8">
+	<p class="text-center md:text-5xl text-4xl text-white font-semibold py-16">
 		{localizedMessage(credits.groupName + 'Group')}
 	</p>
 	<div
@@ -65,6 +65,10 @@
 
 		.not-full.grid-container > .grid-item:nth-child(6) {
 			grid-column: span 2;
+		}
+
+		.not-full.grid-container > .grid-item:nth-child(7) {
+			grid-column: span 4;
 		}
 	}
 </style>

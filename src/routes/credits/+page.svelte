@@ -58,7 +58,7 @@
 >
 	<div
 		class="absolute -top-32 inset-y-0 left-1/2 w-[0.25%] bg-gray-400 -z-0 opacity-70"
-		style="background: linear-gradient(#2e3191, #1d1f5c40, #10113340, #0e0f2b);"
+		style="background: linear-gradient(#2e3191, #1d1f5c40 20%, #10113340 80%, #0F1134 100%);"
 	></div>
 	<div class="relative -z-0 md:w-[80%] m-auto">
 		{#each data.credits.groups as group}
