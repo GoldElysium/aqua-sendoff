@@ -1,6 +1,6 @@
 <script lang="ts">
+	import { localizedMessage } from '$lib/js/localizedMessage';
 	import type { SocialMap, CreditGroup } from '$lib/types/types';
-	import * as m from '$lib/paraglide/messages';
 
 	export let credits: CreditGroup;
 	export let social: SocialMap;
@@ -11,10 +11,6 @@
 		}
 
 		return 'md:grid-cols-2';
-	};
-	const localizedMessage = (message: string) => {
-		// @ts-ignore
-		return m[message] ? m[message]() : message;
 	};
 
 	const hasEightRoles = (group: CreditGroup) => {
