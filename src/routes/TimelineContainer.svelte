@@ -8,6 +8,8 @@
 	import Logo from './Logo.svelte';
 	import { navbarOptions } from '$lib/navbar';
 	import FrontPage from './FrontPage.svelte';
+
+	import BubbleColumn from './BubbleColumn.svelte';
 	import AnchorScroll from './messages/AnchorScroll.svelte';
 	import { scrollPos } from '$lib/scrollStore';
 
@@ -25,12 +27,14 @@
 	let lastScrollTop = 0;
 	let lastTimestamp = 0;
 	let currentAngle = 0;
+	let containerHeight = 0;
 
 	// Function to calculate the reference points for each section
 	// Function to handle scroll events
 	const calculateAnchor = (middlePoint: number) => {
 		if (container && target && footer) {
 			const containerRect = container.getBoundingClientRect();
+			containerHeight = containerRect.height;
 			const offset = 400 / window.devicePixelRatio;
 
 			percDown = 1 - (containerRect.bottom + offset) / containerRect.height;
@@ -106,6 +110,7 @@
 	onMount(() => {
 		target = document.querySelector('#dive-deeper') as HTMLDivElement;
 		footer = document.querySelector('#footer-home') as HTMLDivElement;
+		containerHeight = container?.getBoundingClientRect()?.height || 0;
 
 		updateLayout();
 		onScroll();
@@ -152,7 +157,7 @@
 <div
 	id="timeline-section"
 	bind:this={container}
-	class="text-white py-16 relative"
+	class="text-white py-16 relative overflow-hidden"
 	style="background: linear-gradient(180deg, #4B72D4 0%, #2B35A0 100%);"
 >
 	<!-- Anchor must be below this -->
@@ -164,6 +169,9 @@
 
 		<TimelineProgress bind:this={timelineProgress} {timelineData} />
 		<Timeline {timelineData} {sectionRefs} {layoutType} />
+	</div>
+	<div class="opacity-10">
+		<BubbleColumn bubbleCount={50} loop durationFixed={containerHeight * 8} randomizeStart />
 	</div>
 </div>
 
