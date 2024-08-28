@@ -157,7 +157,7 @@
 <div
 	id="timeline-section"
 	bind:this={container}
-	class="text-white py-16 relative overflow-hidden"
+	class="text-white py-16 relative"
 	style="background: linear-gradient(180deg, #4B72D4 0%, #2B35A0 100%);"
 >
 	<!-- Anchor must be below this -->
@@ -170,7 +170,7 @@
 		<TimelineProgress bind:this={timelineProgress} {timelineData} />
 		<Timeline {timelineData} {sectionRefs} {layoutType} />
 	</div>
-	<div class="opacity-10">
+	<div class="opacity-15 w-full h-full absolute top-0 overflow-hidden">
 		<BubbleColumn bubbleCount={50} loop durationFixed={containerHeight * 8} randomizeStart />
 	</div>
 </div>
