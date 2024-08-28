@@ -9,10 +9,11 @@
 	import FrontPage from '../FrontPage.svelte';
 	import { scrollPos } from '$lib/scrollStore';
 	import AnchorScroll from '../messages/AnchorScroll.svelte';
+	import { localizedMessage } from '$lib/js/localizedMessage';
 
 	export let data: PageData;
-
 	let creditSection: HTMLDivElement;
+	const specialCredits = ['minatoAqua', 'hololive', 'aquaCrew'];
 
 	navbarOptions.set({
 		colorScheme: 'dark'
@@ -65,6 +66,17 @@
 				<CreditList credits={group} social={data.credits.social}></CreditList>
 			{/if}
 		{/each}
+		<p class="text-center md:text-4xl text-2xl text-white py-14 px-4">
+			{localizedMessage('specialThanks')}
+		</p>
+
+		<div class="text-center flex flex-col">
+			{#each specialCredits as member}
+				<p class="font-bold text-2xl text-foreground-blue w-fit m-auto">
+					{localizedMessage(member)}
+				</p>
+			{/each}
+		</div>
 	</div>
 </div>
 
