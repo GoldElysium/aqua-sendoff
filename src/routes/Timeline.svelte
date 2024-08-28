@@ -51,7 +51,7 @@
 							? (yearData.year + i) % 2 !== 0
 								? 'justify-end'
 								: 'justify-start'
-							: ''} pointer-events-none {i !== 0 && '-mt-12'}"
+							: ''} pointer-events-none"
 						id="card-container"
 					>
 						<div class={layoutType === 'horizontal' ? 'w-[44%]' : ''}>

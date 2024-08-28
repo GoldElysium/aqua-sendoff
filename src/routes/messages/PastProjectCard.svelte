@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { localizedMessage } from '$lib/js/localizedMessage';
 	import type { SingleProject } from '$lib/types/types';
 
 	export let data: SingleProject;
@@ -13,7 +14,7 @@
 	rel="external"
 >
 	<div class="flex justify-between">
-		<h2 class="text-lg">{data.name}</h2>
+		<h2 class="text-lg">{localizedMessage(data.name)}</h2>
 		{#if data.url}
 			<img src="/assets/open_external.svg" alt="Open in new tab" class="w-5 h-5" />
 		{/if}

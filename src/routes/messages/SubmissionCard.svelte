@@ -32,6 +32,7 @@
 		if (country === 'El-Salvador') return 'https://flagsapi.com/SV/flat/64.png';
 		if (country === 'Taiwan') return 'https://flagsapi.com/TW/flat/64.png';
 		if (country === 'Russia') return 'https://flagsapi.com/RU/flat/64.png';
+		if (country === 'New-Zealand') return 'https://flagsapi.com/NZ/flat/64.png';
 
 		const iso = iso3166.whereCountry(country)?.alpha2;
 		return `https://flagsapi.com/${iso}/flat/64.png`;
@@ -61,6 +62,10 @@
 		{/if}
 	</div>
 	<p>{data.message[languageTag()] ? data.message[languageTag()] : data.message['en']}</p>
+	{#if languageTag() !== 'ja' && data.message['ja']}
+		<div class="border-t-2 border-black opacity-10 my-4"></div>
+		<p>{data.message['ja']}</p>
+	{/if}
 	<div class="grid place-items-center">
 		{#each data.images as image}
 			<div style="aspect-ratio: {image.width / image.height}" class="w-11/12 h-auto">
