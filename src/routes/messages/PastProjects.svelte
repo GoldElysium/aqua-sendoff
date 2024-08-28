@@ -12,7 +12,7 @@
 
 <section class="group flex flex-col items-center gap-4" bind:this={sectionRef}>
 	<!-- Submissions -->
-	<h1 class="text-5xl z-10 mb-8 mt-16">{m.pastProjects()}</h1>
+	<h1 class="md:text-5xl text-4xl z-10 mb-8 mt-16 px-2">{m.pastProjects()}</h1>
 	{#each data as item}
 		<div class="flex flex-col items-center gap-2">
 			<h1 class="text-3xl font-medium">{item.year}</h1>

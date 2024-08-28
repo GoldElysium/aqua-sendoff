@@ -6,7 +6,6 @@
 	import MessagesFooter from './MessagesFooter.svelte';
 	import Title from './Title.svelte';
 	import { onMount } from 'svelte';
-	import * as m from '$lib/paraglide/messages';
 	import { scrollPos } from '$lib/scrollStore';
 	import AnchorScroll from './AnchorScroll.svelte';
 
