@@ -32,6 +32,7 @@
 		if (country === 'El-Salvador') return 'https://flagsapi.com/SV/flat/64.png';
 		if (country === 'Taiwan') return 'https://flagsapi.com/TW/flat/64.png';
 		if (country === 'Russia') return 'https://flagsapi.com/RU/flat/64.png';
+		if (country === 'New-Zealand') return 'https://flagsapi.com/NZ/flat/64.png';
 
 		const iso = iso3166.whereCountry(country)?.alpha2;
 		return `https://flagsapi.com/${iso}/flat/64.png`;
