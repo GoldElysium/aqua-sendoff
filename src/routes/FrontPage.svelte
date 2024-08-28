@@ -6,7 +6,7 @@
 	import Waves from './Waves.svelte';
 
 	let homeRef: HTMLDivElement;
-	export let targetElement: HTMLElement | HTMLDivElement;
+	export let targetElement: HTMLElement | HTMLDivElement | null;
 
 	// Intersection observer callback
 	const handleIntersect = (entries: IntersectionObserverEntry[]) => {

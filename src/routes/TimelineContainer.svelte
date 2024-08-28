@@ -16,10 +16,10 @@
 	let sectionRefs: HTMLDivElement[] = [];
 	let timelineProgress: TimelineProgress; // Reference to the TimelineProgress component
 	let lineHeight = 0;
-	let container: HTMLDivElement;
+	let container: HTMLDivElement | null = null;
 	let layoutType: 'horizontal' | 'vertical' = 'horizontal';
-	let target: HTMLDivElement;
-	let footer: HTMLDivElement;
+	let target: HTMLDivElement | null = null;
+	let footer: HTMLDivElement | null = null;
 	let percDown = 0;
 
 	let lastScrollTop = 0;

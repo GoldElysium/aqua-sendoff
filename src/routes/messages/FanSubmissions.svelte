@@ -13,7 +13,6 @@
 	let sectionRef: HTMLElement;
 
 	onMount(() => {
-		console.log('onMount called'); // Debugging
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {

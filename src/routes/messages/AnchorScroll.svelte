@@ -2,11 +2,11 @@
 	import { scrollPos, type ScrollPos } from '$lib/scrollStore';
 	import { ArrowDownOutline, ArrowUpOutline } from 'flowbite-svelte-icons';
 
-	export let targetElement: HTMLElement;
+	export let targetElement: HTMLElement | null;
 	export let section: ScrollPos;
 	export let direction: 'top' | 'bottom' = 'bottom';
 	const handleScroll = () => {
-		targetElement.scrollIntoView({ behavior: 'smooth' });
+		targetElement?.scrollIntoView({ behavior: 'smooth' });
 		scrollPos.set({ section });
 	};
 </script>
