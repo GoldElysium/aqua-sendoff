@@ -62,6 +62,10 @@
 		{/if}
 	</div>
 	<p>{data.message[languageTag()] ? data.message[languageTag()] : data.message['en']}</p>
+	{#if languageTag() !== 'ja' && data.message['ja']}
+		<div class="border-t-2 border-black opacity-10 my-4"></div>
+		<p>{data.message['ja']}</p>
+	{/if}
 	<div class="grid place-items-center">
 		{#each data.images as image}
 			<div style="aspect-ratio: {image.width / image.height}" class="w-11/12 h-auto">
