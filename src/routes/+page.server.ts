@@ -13,7 +13,9 @@ export const config = {
 
 const projectSlug = DEV_PROJECT_TIMELINE_SLUG.length > 0 ? DEV_PROJECT_TIMELINE_SLUG : PROJECT_SLUG;
 
-export const load = async function () {
+export const load = async function ({ depends }) {
+	depends("paraglide:lang");
+
 	const locale = languageTag();
 
 	const query = qs.stringify(
