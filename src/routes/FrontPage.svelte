@@ -41,7 +41,7 @@
 
 	onMount(() => {
 		const observer = new IntersectionObserver(handleIntersect, {
-			threshold: 0.9 // Adjust the threshold to determine when the intersection occurs
+			threshold: 0.9
 		});
 
 		if (homeRef) {
