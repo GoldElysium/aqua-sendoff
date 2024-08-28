@@ -34,7 +34,8 @@ export const load = async function () {
 	const groups: CreditGroup[] = creditJson.groups.map((group) => {
 		return {
 			groupName: group.groupName,
-			data: group.data
+			data: group.data,
+			disabled: group.disabled
 		};
 	});
 

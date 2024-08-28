@@ -41,7 +41,11 @@
 <section class="group flex flex-col items-center" bind:this={sectionRef}>
 	<h1 class="text-3xl font-medium z-10">{m.videoHeader()}</h1>
 	<div class="rounded-md w-10/12 my-16 aspect-video overflow-hidden" id="video-container">
-		<video class="w-full h-full" src=""></video>
+		<!-- <video class="w-full h-full" src=""></video> -->
+		<img
+			src="https://pbs.twimg.com/media/GUh_zRUbQAA157f?format=jpg&name=large"
+			alt="akukin logo"
+		/>
 	</div>
 	<h1 class="text-3xl z-10 mb-8">{m.messagesHeader()}</h1>
 	<div class="flex md:gap-4 gap-2">

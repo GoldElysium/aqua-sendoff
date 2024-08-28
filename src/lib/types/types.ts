@@ -45,6 +45,7 @@ type CreditGroup = {
 			members: string[];
 		}
 	];
+	disabled?: boolean;
 };
 
 type SocialMap = {

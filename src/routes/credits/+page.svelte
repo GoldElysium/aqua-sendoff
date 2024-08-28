@@ -61,7 +61,9 @@
 	></div>
 	<div class="relative -z-0 md:w-[80%] m-auto">
 		{#each data.credits.groups as group}
-			<CreditList credits={group} social={data.credits.social}></CreditList>
+			{#if !group.disabled}
+				<CreditList credits={group} social={data.credits.social}></CreditList>
+			{/if}
 		{/each}
 	</div>
 </div>

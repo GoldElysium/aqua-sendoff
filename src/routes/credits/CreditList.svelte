@@ -10,6 +10,10 @@
 			return 'md:grid-cols-4';
 		}
 
+		if (numOfRoles === 3) {
+			return 'md:grid-cols-3';
+		}
+
 		return 'md:grid-cols-2';
 	};
 
