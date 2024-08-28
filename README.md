@@ -1,6 +1,6 @@
 # Aqua send off website
 
-Website for AkukinHQ's send off project
+Website for AkukinHQ's send off project. OTSUAQUAA
 
 ## Preparing
 
