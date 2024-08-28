@@ -28,8 +28,9 @@
 		{localizedMessage(credits.groupName + 'Group')}
 	</p>
 	<div
-		class="{!hasEightRoles(credits) &&
-			'not-full'} grid-container md:grid-cols-4 sm:grid-cols-2 gap-10 min-h-[40vh]"
+		class="{!hasEightRoles(credits) && 'not-full'} grid-container {getGridColsStyle(
+			credits.data.length
+		)} gap-10 min-h-[40vh]"
 	>
 		{#each credits.data as creditData}
 			<div class="grid-item">
