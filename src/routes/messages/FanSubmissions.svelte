@@ -69,4 +69,7 @@
 	#video-container {
 		border: 5px solid #ffd6ac;
 	}
+	h1 {
+		color: #2e3191;
+	}
 </style>

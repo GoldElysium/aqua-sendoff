@@ -66,9 +66,7 @@
 	:root {
 		background: #2b35a0;
 	}
-	h1 {
-		color: #2e3191;
-	}
+
 	#content {
 		background: linear-gradient(180deg, #ffc387 0%, #dba166 100%);
 	}
