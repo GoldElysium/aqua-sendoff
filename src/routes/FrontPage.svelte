@@ -19,7 +19,7 @@
 		<img
 			src="/assets/Island.webp"
 			alt="island"
-			class="absolute z-[0] bottom-0 md:right-[10%] -right-4 2xl:scale-100"
+			class="absolute z-[0] 2xl:bottom-0 -bottom-4 md:right-[10%] -right-4 scale-75 2xl:scale-100"
 		/>
 
 		<img
