@@ -12,6 +12,14 @@
 		ja: '日本語',
 		zh: '中文'
 	};
+
+	const triggerReload = () => {
+		if (i18n.route($page.url.pathname) != '/') return;
+
+		setTimeout(() => {
+			location.reload();
+		}, 50);
+	}
 </script>
 
 <div>
@@ -24,6 +32,7 @@
 				href={i18n.route($page.url.pathname)}
 				hreflang={language}
 				rel="alternate"
+				on:click={triggerReload}
 				aria-current={language === languageTag() ? 'current' : undefined}
 				class="flex gap-2 items-center"
 			>
