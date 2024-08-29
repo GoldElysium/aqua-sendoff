@@ -6,7 +6,7 @@ export function getProxyImageURL(
 	src: string,
 	width: number | undefined,
 	height: number | undefined,
-	quality = 90
+	quality = 85
 ): string {
 	if (BYPASS_IMAGINARY_PROXY === 'true') {
 		return new URL(src, CMS_REST_API_URL).toString();

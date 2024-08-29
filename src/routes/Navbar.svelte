@@ -13,7 +13,7 @@
 		? 'text-foreground-blue-accent'
 		: 'text-white'}"
 >
-	<a href="/">
+	<a href="/" aria-label="Home">
 		<Logo
 			class="transition-colors {colorScheme === 'dark'
 				? 'fill-foreground-blue-accent'

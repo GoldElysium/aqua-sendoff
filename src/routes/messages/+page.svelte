@@ -50,7 +50,7 @@
 <div class="grid place-items-center text-white" id="background" bind:this={submissionsSection}>
 	<div class="pt-8 w-full flex flex-col justify-center items-center" id="content">
 		<div class="max-w-[96rem] w-full flex flex-col items-center">
-			<FanSubmissions data={data.submissions} />
+			<FanSubmissions data={data.submissions} image={data.underConstruction} />
 			<PastProjects data={data.projectData} />
 		</div>
 		<MessagesFooter />

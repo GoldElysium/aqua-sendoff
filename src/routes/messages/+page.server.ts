@@ -59,7 +59,7 @@ export const load = async function () {
 					name: projectElem.name,
 					url: projectElem.url,
 					image: projectElem.image
-						? getProxyImageURL(projectElem.image, 1920, undefined)
+						? getProxyImageURL(projectElem.image, 1280, undefined)
 						: undefined,
 					video: projectElem.video
 				};
@@ -85,6 +85,11 @@ export const load = async function () {
 
 	return {
 		projectData,
-		submissions
+		submissions,
+		underConstruction: getProxyImageURL(
+			'https://cdn.holoen.fans/hefw/media/underconstruction.webp',
+			1280,
+			undefined
+		)
 	};
 } satisfies PageServerLoad;
