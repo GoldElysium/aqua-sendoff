@@ -27,7 +27,21 @@ function getImageObject(cmsImageObj: any, smallSize = 800): Image {
 	let cmsImage;
 	let url;
 	let smallUrl;
-	if ('image' in cmsImageObj) {
+
+	// Optimization for profile pictures
+	if (cmsImageObj.mimeType && cmsImageObj.mimeType.includes('image')) {
+		cmsImage = cmsImageObj;
+		url =
+			cmsImage.width > cmsImage.height
+				? getProxyImageURL(cmsImage.url, 1920, undefined)
+				: getProxyImageURL(cmsImage.url, undefined, 1080);
+		smallUrl =
+			cmsImage.width > smallSize || cmsImage.height > smallSize
+				? getDownscaledProxyImageURL(cmsImage, smallSize)
+				: undefined;
+	}
+	// Optimization for submission images
+	else if ('image' in cmsImageObj) {
 		cmsImage = cmsImageObj.image;
 		url =
 			cmsImage.width > cmsImage.height
@@ -37,7 +51,9 @@ function getImageObject(cmsImageObj: any, smallSize = 800): Image {
 			cmsImage.width > smallSize || cmsImage.height > smallSize
 				? getDownscaledProxyImageURL(cmsImage, smallSize)
 				: undefined;
-	} else {
+	}
+	// Videos, embeds, etc.
+	else {
 		cmsImage = cmsImageObj;
 		url = cmsImage.url;
 		smallUrl = cmsImage.smallUrl;
