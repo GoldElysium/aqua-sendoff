@@ -3,8 +3,8 @@ import type { PageServerLoad } from '../$types';
 import qs from 'qs';
 import type { Project, Submission } from '$lib/types/CMS';
 import fetchAllFromCMS from '$lib/js/fetchFromCMS';
-import getImageObject from '$lib/js/image';
-import type { ArtSubmissionData } from '$lib/types/types';
+import getImageObject, { getProxyImageURL } from '$lib/js/image';
+import type { ArtSubmissionData, ProjectData, SingleProject } from '$lib/types/types';
 import { extractFilAttr } from '$lib/js/extractFilAttr';
 
 export const config = {
@@ -51,7 +51,21 @@ export const load = async function () {
 		project.devprops!.find((prop) => prop.key === 'projects')!.value
 	);
 
-	const projectData = projectJson.projects;
+	const projectData = projectJson.projects.map((element: ProjectData) => {
+		return {
+			year: element.year,
+			projects: element.projects.map((projectElem: SingleProject) => {
+				return {
+					name: projectElem.name,
+					url: projectElem.url,
+					image: projectElem.image
+						? getProxyImageURL(projectElem.image, 1920, undefined)
+						: undefined,
+					video: projectElem.video
+				};
+			})
+		};
+	});
 
 	const submissions: ArtSubmissionData[] = data.map((element: Submission) => {
 		return {
