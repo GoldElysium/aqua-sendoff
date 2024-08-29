@@ -39,14 +39,8 @@ function getImageObject(cmsImageObj: any, smallSize = 800): Image {
 				: undefined;
 	} else {
 		cmsImage = cmsImageObj;
-		url =
-			cmsImage.width > cmsImage.height
-				? getProxyImageURL(cmsImage.url, 1920, undefined)
-				: getProxyImageURL(cmsImage.url, undefined, 1080);
-		smallUrl =
-			cmsImage.width > smallSize || cmsImage.height > smallSize
-				? getDownscaledProxyImageURL(cmsImage, smallSize)
-				: undefined;
+		url = cmsImage.url;
+		smallUrl = cmsImage.smallUrl;
 	}
 
 	return {
