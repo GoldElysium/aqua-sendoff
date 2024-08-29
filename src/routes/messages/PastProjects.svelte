@@ -15,7 +15,7 @@
 	<h1 class="md:text-5xl text-4xl z-10 mb-8 mt-16 px-2">{m.pastProjects()}</h1>
 	{#each data as item}
 		<div class="flex flex-col items-center gap-2">
-			<h1 class="text-3xl font-medium">{item.year}</h1>
+			<h2 class="text-3xl font-medium">{item.year}</h2>
 			<div class="md:flex gap-2">
 				{#each item.projects as project, j}
 					<PastProjectCard data={project} color={colors[j % colors.length]} />
@@ -28,3 +28,9 @@
 {#if $scrollPos.section === 'ms'}
 	<AnchorScroll targetElement={sectionRef} section="msFooter" direction="bottom"></AnchorScroll>
 {/if}
+
+<style>
+	h1 {
+		color: #2e3191;
+	}
+</style>
