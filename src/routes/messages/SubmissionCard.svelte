@@ -1,11 +1,9 @@
 <script lang="ts">
-	import Lazy from '$lib/components/Lazy.svelte';
 	import { languageTag } from '$lib/paraglide/runtime';
 	import type { ArtSubmissionData } from '$lib/types/types';
 	import iso3166 from 'iso-3166-1';
 
 	export let data: ArtSubmissionData;
-	export let index = 0;
 	export let color: 'pink' | 'blue' | 'yellow' = 'pink';
 
 	// Function to generate a random rotation angle between -3 and 3 degrees
@@ -42,60 +40,67 @@
 	let rotationAngle = getRandomRotation();
 </script>
 
-<Lazy visible={index < 3}>
-	<div
-		class="p-4 break-inside-avoid rounded-md h-fit hidden min-w-0 mb-8 {color} {$$props.class}"
-		class:message={data.message && data.images.length === 0}
-		class:artwork={hasType(data, 'image') && hasSubType(data, 'artwork')}
-		class:photo={hasType(data, 'image') && hasSubType(data, 'picture')}
-		class:video={hasType(data, 'video')}
-		style="transform: rotate({rotationAngle}deg);"
-		id="card"
-	>
-		<div class="flex justify-between mb-6">
-			<div class="flex gap-2 items-center">
-				<h1 class="text-2xl">{data.author}</h1>
-				{#if data.authorIcon}
+<div
+	class="p-4 break-inside-avoid rounded-md h-fit hidden min-w-0 mb-8 {color} {$$props.class}"
+	class:message={data.message && data.images.length === 0}
+	class:artwork={hasType(data, 'image') && hasSubType(data, 'artwork')}
+	class:photo={hasType(data, 'image') && hasSubType(data, 'picture')}
+	class:video={hasType(data, 'video')}
+	style="transform: rotate({rotationAngle}deg);"
+	id="card"
+>
+	<div class="flex justify-between mb-6">
+		<div class="flex gap-2 items-center">
+			<h1 class="text-2xl">{data.author}</h1>
+			{#if data.authorIcon}
+				<img
+					src={data.authorIcon?.smallSrc ?? data.authorIcon.src}
+					alt={data.author}
+					class="w-8 h-8 rounded-full object-cover"
+					loading="lazy"
+					decoding="async"
+				/>
+			{/if}
+		</div>
+		{#if data.country}
+			<img
+				src={getFlag(data.country)}
+				alt={data.country}
+				class="w-8 h-8"
+				loading="lazy"
+				decoding="async"
+			/>
+		{/if}
+	</div>
+	<p>{data.message[languageTag()] ? data.message[languageTag()] : data.message['en']}</p>
+	{#if languageTag() !== 'ja' && data.message['ja']}
+		<div class="border-t-2 border-black opacity-10 my-4"></div>
+		<p>{data.message['ja']}</p>
+	{/if}
+
+	<div class="grid place-items-center">
+		{#each data.images as image}
+			<div style="aspect-ratio: {image.width / image.height}" class="w-11/12 h-auto">
+				{#if image.type === 'image'}
 					<img
-						src={data.authorIcon?.smallSrc ?? data.authorIcon.src}
-						alt={data.author}
-						class="w-8 h-8 rounded-full object-cover"
+						src={image.src}
+						alt={image.alt}
+						decoding="async"
+						loading="lazy"
+						class="img-sub"
+					/>
+				{:else if image.type === 'video'}
+					<iframe
+						title={image.alt}
+						src={image.src}
+						class="w-full aspect-video"
+						loading="lazy"
 					/>
 				{/if}
 			</div>
-			{#if data.country}
-				<img src={getFlag(data.country)} alt={data.country} class="w-8 h-8" />
-			{/if}
-		</div>
-		<p>{data.message[languageTag()] ? data.message[languageTag()] : data.message['en']}</p>
-		{#if languageTag() !== 'ja' && data.message['ja']}
-			<div class="border-t-2 border-black opacity-10 my-4"></div>
-			<p>{data.message['ja']}</p>
-		{/if}
-		<div class="grid place-items-center">
-			{#each data.images as image}
-				<div style="aspect-ratio: {image.width / image.height}" class="w-11/12 h-auto">
-					{#if image.type === 'image'}
-						<img
-							src={image.src}
-							alt={image.alt}
-							decoding="async"
-							loading="lazy"
-							class="img-sub"
-						/>
-					{:else if image.type === 'video'}
-						<iframe
-							title={image.alt}
-							src={image.src}
-							class="w-full aspect-video"
-							loading="lazy"
-						/>
-					{/if}
-				</div>
-			{/each}
-		</div>
+		{/each}
 	</div>
-</Lazy>
+</div>
 
 <style>
 	h1,

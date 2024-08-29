@@ -65,7 +65,7 @@
 	<div class="flex justify-center py-8 w-10/12">
 		<div class="md:columns-2 lg:columns-3 max-w-[96rem]" style="column-gap: 40px;">
 			{#each data as item, i}
-				<SubmissionCard data={item} color={getColor(i)} index={i} />
+				<SubmissionCard data={item} color={getColor(i)} />
 			{/each}
 		</div>
 	</div>

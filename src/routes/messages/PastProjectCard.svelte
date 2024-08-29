@@ -16,14 +16,21 @@
 	<div class="flex justify-between">
 		<h2 class="text-lg">{localizedMessage(data.name)}</h2>
 		{#if data.url}
-			<img src="/assets/open_external.svg" alt="Open in new tab" class="w-5 h-5" />
+			<img
+				src="/assets/open_external.svg"
+				alt="Open in new tab"
+				class="w-5 h-5"
+				loading="lazy"
+				decoding="async"
+			/>
 		{/if}
 	</div>
 	{#if data.image}
-		<img src={data.image} alt="{data.name} image" class="" />
+		<img src={data.image} alt="{data.name} image" class="" loading="lazy" decoding="async" />
 	{/if}
 	{#if data.video}
-		<iframe src={data.video} class="w-full aspect-video" title={data.name}></iframe>
+		<iframe src={data.video} class="w-full aspect-video" title={data.name} loading="lazy"
+		></iframe>
 	{/if}
 </a>
 
