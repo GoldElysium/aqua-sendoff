@@ -21,7 +21,7 @@
 
 	onMount(() => {
 		const handler = () => {
-			if (creditSection.offsetTop < window.scrollY) {
+			if (creditSection.offsetTop - 200 < window.scrollY) {
 				navbarOptions.set({
 					colorScheme: 'light'
 				});

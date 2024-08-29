@@ -30,6 +30,7 @@
 					style="left: calc({(index / (timelineData.length - 1)) * 100}% - 8px);"
 				>
 					<button
+						name={year.toString()}
 						class="dot {progress + 1 > step * index && 'active'}"
 						on:click={() => scrollToYear(year)}
 					></button>

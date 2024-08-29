@@ -46,7 +46,7 @@
 		id="video-container"
 	>
 		<!-- <video class="w-full h-full" src=""></video> -->
-		<img src={image} alt="akukin logo" decoding="async" />
+		<img src={image} alt="akukin logo" decoding="async" loading="lazy" />
 
 		<p
 			class="absolute z-[1] top-1/2 px-2 py-2 drop-shadow-lg md:drop-shadow-none rounded -translate-y-1/2 md:translate-y-0 sm:top-[55%] xl:top-[60%] left-1/2 -translate-x-1/2 font-semibold bg-background-yellow md:bg-transparent text-lg md:text-xl lg:text-2xl xl:text-3xl text-center w-2/3 md:w-2/5 text-foreground-blue-accent"

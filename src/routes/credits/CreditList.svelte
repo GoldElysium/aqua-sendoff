@@ -39,13 +39,20 @@
 				</p>
 				<div class="text-center flex flex-col">
 					{#each creditData.members as member}
-						<a
-							href={social[member]}
-							target="_blank"
-							rel="external"
-							class="font-bold text-lg text-foreground-blue {social[member] &&
-								'underline'} w-fit m-auto">{member}</a
-						>
+						{#if social[member]}
+							<a
+								href={social[member]}
+								target="_blank"
+								rel="external"
+								class="font-bold text-lg text-foreground-blue underline w-fit m-auto"
+							>
+								{member}
+							</a>
+						{:else}
+							<span class="font-bold text-lg text-foreground-blue w-fit m-auto">
+								{member}
+							</span>
+						{/if}
 					{/each}
 				</div>
 			</div>

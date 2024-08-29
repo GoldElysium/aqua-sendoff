@@ -67,8 +67,10 @@
 		src="/assets/mainlogo.webp"
 		alt="main-logo"
 		class="absolute w-[40%] sm:w-[50%] lg:w-[40%] min-w-[350px] top-[35%] md:mt-8 -translate-y-full"
+		decoding="async"
+		loading="lazy"
 	/>
-	<img src="/assets/Sun.webp" alt="sun" class="absolute left-0 top-0" />
+	<img src="/assets/Sun.webp" alt="sun" class="absolute left-0 top-0" decoding="async" loading="lazy" />
 	<div class="z-[5] min-h-[100px] relative w-full flex flex-col items-center">
 		<Ship />
 
@@ -76,6 +78,8 @@
 			src="/assets/Island.webp"
 			alt="island"
 			class="absolute z-[0] 2xl:bottom-0 -bottom-4 md:right-[10%] -right-4 scale-75 2xl:scale-100"
+			decoding="async"
+			loading="lazy"
 		/>
 		<Waves />
 		<slot></slot>
