@@ -47,8 +47,9 @@
 		class="text-4xl uppercase flex flex-col items-center py-24 pt-36 lg:pt-44 text-white"
 		id="dive-deeper"
 	>
-		<span>Dive</span>
-		<span>deeper</span>
+		{#each m.timelineFooter().split(' ') as word}
+			<span class="text-5xl">{word}</span>
+		{/each}
 	</p>
 
 	<small class="text-sm mb-2 text-center">{m.footerAffiliation()}</small>
