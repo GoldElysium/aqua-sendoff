@@ -66,10 +66,7 @@
 	}
 
 	@media (min-width: 768px) {
-		.not-full.grid-container > .grid-item:nth-child(5) {
-			grid-column: span 2;
-		}
-
+		.not-full.grid-container > .grid-item:nth-child(5),
 		.not-full.grid-container > .grid-item:nth-child(6) {
 			grid-column: span 2;
 		}
