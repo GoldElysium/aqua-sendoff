@@ -45,14 +45,7 @@
 		class="rounded-md w-10/12 my-16 relative aspect-video overflow-hidden bg-background-yellow"
 		id="video-container"
 	>
-		<!-- <video class="w-full h-full" src=""></video> -->
-		<img src={image} alt="akukin logo" decoding="async" loading="lazy" />
-
-		<p
-			class="absolute z-[1] top-1/2 px-2 py-2 drop-shadow-lg md:drop-shadow-none rounded -translate-y-1/2 md:translate-y-0 sm:top-[55%] xl:top-[60%] left-1/2 -translate-x-1/2 font-semibold bg-background-yellow md:bg-transparent text-lg md:text-xl lg:text-2xl xl:text-3xl text-center w-2/3 md:w-2/5 text-foreground-blue-accent"
-		>
-			{m.underConstruction()}
-		</p>
+		<iframe class="w-full h-full rounded" src="https://www.youtube.com/embed/hL03s6jeZME?si=CyzkMeCtfRbuDcQb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 	</div>
 	<h1 class="text-3xl z-10 mb-8">{m.messagesHeader()}</h1>
 	<div class="flex md:gap-4 gap-2">
